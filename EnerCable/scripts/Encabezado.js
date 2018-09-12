@@ -1,0 +1,12 @@
+﻿//var _encabezado = "http://192.168.1.27/Consumo";
+var _encabezado = "";
+var _accion = "/Usuario/agregarUsuario/";
+var _accionGrid = "/Usuario/ObtenerUsuarios";
+var datosView = { txtNombre: "", txtApellido: "" };
+var datosInsercion = [];
+var objetoInsertar;
+var datosAccion = {datos:objetoInsertar};
+var datosGrid;
+var columnasGrid;
+var $nuevo = 1;
+var reporteFolio = "http://localhost/ReportesEnercable/Reporte.aspx?asasdasda=";

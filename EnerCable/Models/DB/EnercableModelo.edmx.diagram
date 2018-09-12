@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12029158d0ce4484a345e372fde0bf95" Name="Diagram1">
+        <EntityTypeShape EntityType="EnercableBD.Bitacoras" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnercableBD.Estatus" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnercableBD.Modulos" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnercableBD.Perfiles" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnercableBD.PermisosPerfiles" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnercableBD.Sesiones" Width="1.5" PointX="4.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnercableBD.Usuarios" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnercableBD.Cabeceras" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="EnercableBD.Cargos" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EnercableBD.CargosPersonas" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EnercableBD.CordenadasCab24" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EnercableBD.Personas" Width="1.5" PointX="3.75" PointY="9.75" />
+        <EntityTypeShape EntityType="EnercableBD.Proveedores" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="EnercableBD.Servicios" Width="1.5" PointX="5.75" PointY="10.75" />
+        <EntityTypeShape EntityType="EnercableBD.TrabajosRealizados" Width="1.5" PointX="9.5" PointY="0.625" />
+        <EntityTypeShape EntityType="EnercableBD.Unidades" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwUsuarios" Width="1.5" PointX="8.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwServicios" Width="1.5" PointX="10.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwPersonas" Width="1.5" PointX="12.375" PointY="4.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwProveedores" Width="1.5" PointX="12.375" PointY="8.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwUnidades" Width="1.5" PointX="12.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwCargos" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwPerfiles" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="EnercableBD.Folios" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="EnercableBD.Archivos" Width="1.5" PointX="14.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EnercableBD.Carpetas" Width="1.5" PointX="12.375" PointY="15.75" />
+        <EntityTypeShape EntityType="EnercableBD.ClasificacionServicios" Width="1.5" PointX="14.375" PointY="15.75" />
+        <EntityTypeShape EntityType="EnercableBD.Configuracion" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EnercableBD.Departamentos" Width="1.5" PointX="16.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EnercableBD.TipoArchivo" Width="1.5" PointX="16.375" PointY="7.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwClasificacionServicios" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwDepartamentos" Width="1.5" PointX="9.375" PointY="16.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwTrabajosRealizados" Width="1.5" PointX="3.375" PointY="17.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwFolios" Width="1.5" PointX="16.375" PointY="10.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwArchivos" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EnercableBD.Formatos" Width="1.5" PointX="18.375" PointY="5.75" />
+        <EntityTypeShape EntityType="EnercableBD.ServiciosPorFormato" Width="1.5" PointX="18.375" PointY="8.75" />
+        <EntityTypeShape EntityType="EnercableBD.vwFormatos" Width="1.5" PointX="18.375" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,619 @@
+﻿
+@{
+    ViewBag.Title = "Folios";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h2>Folios</h2>
+@section Scripts {
+    @Scripts.Render("~/scripts/Folio/Operaciones.js")
+    @Scripts.Render("~/scripts/Folio/Archivos.js")
+    @Scripts.Render("~/scripts/Folio/Registrar.js")
+
+
+}
+
+
+<div id="view" class="card">
+    <div class="header">
+        <h2>Registro de Folios</h2>
+
+        <ul class="header-dropdown m-r--5">
+
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">more_vert</i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li><a id="aCapturar" href="javascript:void(0);" class=" waves-effect waves-block"><i class="material-icons">screen_rotation</i>Capturar</a></li>
+                    <li><a href="javascript:void(0);" class=" waves-effect waves-block"><i class="material-icons">save</i>Guardar</a></li>
+                    <li><a href="javascript:void(0);" class=" waves-effect waves-block"><i class="material-icons">cancel</i>Cancelar</a></li>
+                    @*<li><a href="javascript:void(0);" class=" waves-effect waves-block"><i class="material-icons">delete</i>Eliminar</a></li>*@
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="body">
+
+        <div class="row clearfix">
+            <div>
+                <div class="panel-group" id="accordion_11" role="tablist" aria-multiselectable="true">
+                    <div class="panel  panel-col-light-blue">
+                        <div class="panel-heading" role="tab" id="headingTwo_1">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseTwo_1" aria-expanded="false" aria-controls="collapseTwo_1">
+                                    Ingresar Archivo de Texto
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo_1" aria-expanded="false" style="height: 0px;">
+                            <div class="panel-body">
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <textarea rows="25" class="form-control no-resize" id="txtTextoAProcesar" placeholder="Ingrese el Texto a Procesar..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-sm-4">
+                                        <button type="button" onclick="pintarCajasDeTexto();" class="btn bg-light-blue waves-effect">
+                                            <i class="material-icons">save</i>
+                                            <span>Procesar</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-col-light-blue">
+                        <div class="panel-heading" role="tab" id="headingOne_11">
+                            <h4 class="panel-title">
+
+                                <a id="aPanel" role="button" data-toggle="collapse" data-parent="#accordion_11" href="#collapseOne_11" aria-expanded="false" aria-controls="collapseOne_11" class="collapsed">
+                                    Capturar Información de Folios
+                                </a>
+
+                            </h4>
+
+
+                        </div>
+
+                        <div id="collapseOne_11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne_11" aria-expanded="false">
+                            <div class="panel-body">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <form>
+
+                                        <div class="row clearfix">
+
+
+                                            <div class="col-sm-4">
+                                                <label for="txtFolio">Unidad</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input type="hidden" value="0" id="hdIdFolio" />
+                                                        <input id="txtFolio" class="form-control" placeholder="Ingrese el Folio" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="txtCiudad">Ciudad</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtCiudad" class="form-control" placeholder="Ingrese la Ciudad" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="txtEstado">Estado</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtEstado" class="form-control" placeholder="Ingrese el Estado" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+
+
+                                            <div class="col-sm-4">
+                                                <label for="txtCluster">Cluster</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+
+                                                        <input id="txtCluster" class="form-control" placeholder="Ingrese el Cluster" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="txtOlt">OLT</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtOlt" class="form-control" placeholder="Ingrese el OLT" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="txtClientesAfectados">Clientes Afectados</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtClientesAfectados" class="form-control" placeholder="Ingrese los Clientes Afectados" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+
+
+                                            <div class="col-sm-4">
+                                                <label for="txtFallaReportada">Falla Reportada</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+
+                                                        <input id="txtFallaReportada" class="form-control" placeholder="Ingrese la Falla Reportada" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="txtFechaDespacho">Fecha y Hora Asignacion de Despacho</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtFechaDespacho" class="form-control" placeholder="Ingrese la Fecha y Hora" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="txtFechaProvista">Fecha y Hora Asignacion de Provista</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtFechaProvista" class="form-control" placeholder="Ingrese la Fecha y Hora" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+
+
+                                            <div class="col-sm-4">
+                                                <label for="txtLlegadaZona">Hora de Llegada ala Zona</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+
+                                                        <input id="txtLlegadaZona" class="form-control" placeholder="Ingrese Hora de Llegada a la Zona" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="txtHoraMedicion">Hora de la Primera Medicion</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtHoraMedicion" class="form-control" placeholder="Ingrese Hora de la Primer Medicion" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="txtUbicacion">Ubicacion de Niveles de Derivacion Con Sus Fibras</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtUbicacion" class="form-control" placeholder="Ingrese Ubicacion de Niveles de Derivacion Con Sus Fibras" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+
+
+                                            <div class="col-sm-6">
+                                                <label for="txtCausa">Causa del Daño</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+
+                                                        <input id="txtCausa" class="form-control" placeholder="Ingrese Causa del Daño" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="txtUbicacionDanio">Ubicacion del Daño</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtUbicacionDanio" class="form-control" placeholder="Ingrese la Ubicacion de Daño" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row clearfix">
+
+                                            <div class="col-sm-4">
+                                                <label for="txtCoordenadasX">Coordenadas X del Daño</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtCoordenadasX" class="form-control" placeholder="Ingrese Coordenadas X del Daño" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="txtCoordenadasY">Coordenadas Y del Daño</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtCoordenadasY" class="form-control" placeholder="Ingrese Coordenadas Y del Daño" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="txtDescripcion">Descripcion de Actividades</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <textarea rows="10" class="form-control no-resize" id="txtDescripcion" placeholder="Ingrese la Descripcion de Actividades..."></textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+
+                                            <div class="col-sm-4">
+                                                <label for="txtPotenciaInicial">Potencial Inicial</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtPotenciaInicial" class="form-control" placeholder="Ingrese el Potencial Inicial" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="txtPotenciaFinal">Potencia Final</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtPotenciaFinal" class="form-control" placeholder="Ingrese la Potencia Final" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="txtHoraReparacion">Fecha Hora Final Reparación</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtHoraReparacion" class="form-control" placeholder="Ingrese la Fecha Hora Final de Reparacion" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+
+                                            <div class="col-sm-4">
+                                                <label for="ddlTecnicoAtiende">Tecnico Atiende</label>
+                                                @Html.DropDownList("ddlTecnicoAtiende", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Tecnicos, new { @class = "combo form-control show-tick" })
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="ddlSupervisorx">Supervisor</label>
+                                                @Html.DropDownList("ddlSupervisorx", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Supervisores, new { @class = "combo form-control show-tick" })
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="ddlDespachox">Atendio Despacho</label>
+                                                @Html.DropDownList("ddlDespachox", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Despachos, new { @class = "combo form-control show-tick" })
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row clearfix">
+
+                                            <div class="col-sm-4">
+                                                <label for="ddlProveedor">Proveedor</label>
+                                                @Html.DropDownList("ddlProveedor", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Proveedores, new { @class = "combo form-control show-tick" })
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <label for="txtJustificacion">Justificacion de SLA</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input id="txtJustificacion" class="form-control" placeholder="Ingrese la Justificacion" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-sm-6">
+                                                <label for="txtServicios">Trabajos Realizados (Conceptos)</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <textarea rows="5" class="form-control no-resize" id="txtServicios" placeholder="Ingrese los Servicios..."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="txtCoordenadasCab">Coordenadas Cab 024</label>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <textarea rows="5" class="form-control no-resize" id="txtCoordenadasCab" placeholder="Ingrese las Coordenadas..."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-2">
+                                                <button v-on:click="guardar" type="button" class="btn bg-light-blue waves-effect">
+                                                    <i class="material-icons">save</i>
+                                                    <span>Guardar</span>
+                                                </button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button v-on:click="cancelar" type="button" class="btn bg-light-blue waves-effect">
+                                                    <i class="material-icons">cancel</i>
+                                                    <span>Cancelar</span>
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div id="miGrid" kendo-grid="miGrid" class="MyGrid" k-rebind="KendoCulture" options="mainGridOptions"></div>
+                <ul id="context-menu">
+                    <li id="editRow">Editar</li>
+                    <li id="addRow">Servicios</li>
+                    <li id="removeRow">Archivos y Depto</li>
+                    <li id="reportear">Reporte</li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="window" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <div class="row clearfix">
+
+                <div class="col-sm-3">
+                    <input type="hidden" value="0" id="hdIdTrabajo" />
+                    <label for="ddlClaveServicio">Clave Servicio</label>
+                    @Html.DropDownList("ddlClaveServicio", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Claves, new { @class = "combo form-control show-tick" })
+                </div>
+            </div>
+            <div class="row clearfix">
+
+
+                <div class="col-sm-10">
+                    <label for="txtDescripcionServicio">Descripcion</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <textarea rows="6" class="form-control no-resize" id="txtDescripcionServicio" placeholder="Ingrese la Descripcion..."></textarea>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <div class="row clearfix">
+
+                <div class="col-sm-2">
+                    <label for="txtCantidadServicio">Cantidad</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input id="txtCantidadServicio" class="form-control" placeholder="Ingrese la Cantidad" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label for="txtPrecioUnitarioServicio">Precio</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input id="txtPrecioUnitarioServicio" class="form-control" placeholder="Ingrese el Precio" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label for="txtConsecutivoServicio">Consecutivo</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input id="txtConsecutivoServicio" class="form-control" placeholder="Ingrese el Consecutivo" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="ddlUnidadServicio">Unidad</label>
+                    @Html.DropDownList("ddlUnidadServicio", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Unidades, new { @class = "combo form-control show-tick" })
+                </div>
+
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-2">
+                    <button onclick="guardarTrabajo();" type="button" class="btn bg-light-blue waves-effect">
+                        <i class="material-icons">save</i>
+                        <span>Guardar</span>
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button onclick="return limpiarTrabajo();" type="button" class="btn bg-light-blue waves-effect">
+                        <i class="material-icons">cancel</i>
+                        <span>Limpiar</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+                <div class="col-md-10">
+                    <div id="tablaMenu" class="table-responsive">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div id="window2" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row clearfix">
+                <div class="col-md-10">
+                    <label for="ddlOpciones">Opcion</label>
+                    <select id="ddlOpciones" class="combo form-control show-tick">
+                        <option value="0" selected="selected">Ligar Departamento</option>
+                        <option value="1">Ligar Archivos</option>
+                    </select>
+
+
+                </div>
+            </div>
+            <br />
+            <br />
+            <div id="divDeptos" class="row clearfix">
+                <div class="col-sm-10">
+                    <label for="ddlDepartamentoModal">Departamento</label>
+                    @Html.DropDownList("ddlDepartamentoModal", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Departamentos, new { @class = "combo form-control show-tick" })
+                </div>
+
+
+
+            </div>
+            <div id="divArchivos" style="display:none" class="row clearfix">
+
+                <div class="col-sm-10">
+
+
+                    <div class="row clearfix">
+
+
+
+                        <div class="col-sm-5">
+                            <label for="ddlTipoArchivo">Tipo de Archivo</label>
+                            @Html.DropDownList("ddlTipoArchivo", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Tipos, new { @class = "combo form-control show-tick" })
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="ddlCarpeta">Carpeta</label>
+                            @Html.DropDownList("ddlCarpeta", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Carpetas, new { @class = "combo form-control show-tick" })
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row clearfix" id="divReporteFotografico" style="display:none">
+                        <div class="col-sm-5">
+                            <label for="ddlEventoArchivo">
+                                Evento</label>
+                                <select id="ddlEventoArchivo" class="combo form-control show-tick">
+                                    <option selected="selected" value="1">Antes</option>
+                                    <option value="2">Durante</option>
+                                    <option value="3">Despues</option>
+                                    <option value="4">Herramients y Uniformes</option>
+
+                                </select>
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="ddlOrdenArchivo">
+                                Orden</label>
+                                <select id="ddlOrdenArchivo" class="combo form-control show-tick">
+                                    <option selected="selected" value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                        </div>
+
+                    </div>
+
+
+                    <br />
+                    <br />
+                    <div class="row clearfix">
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <label>Archivo</label>
+                                <input name="files" id="files" type="file" aria-label="files" />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row clearfix">
+                        <div class="col-sm-10">
+                            <button id="btnLimpiar" style="display:none " type="button" onclick="$('.k-widget.k-upload').find('ul').remove();$('#btnLimpiar').hide();   $('#Validaciones').html('');" class="btn btn-info btn-fill pull-right">Limpiar</button>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row clearfix">
+                        <div id="tablaArchivos" class="col-sm-10">
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <br />
+            <br />
+
+            <div class="row clearfix">
+                <div class="col-md-2">
+                    <button onclick="return guardarDepartamento();" type="button" class="btn bg-light-blue waves-effect">
+                        <i class="material-icons">save</i>
+                        <span>Guardar</span>
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" onclick="$('#window2').data('kendoWindow').close();" class="btn bg-light-blue waves-effect">
+                        <i class="material-icons">cancel</i>
+                        <span>Cancelar</span>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>

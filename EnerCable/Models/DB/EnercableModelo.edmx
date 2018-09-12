@@ -1,0 +1,2621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EnercableBD.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Archivos">
+          <Key>
+            <PropertyRef Name="IdArchivo" />
+          </Key>
+          <Property Name="IdArchivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFolio" Type="int" Nullable="false" />
+          <Property Name="IdTipoArchivo" Type="int" Nullable="false" />
+          <Property Name="IdCarpeta" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="Extension" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Orden" Type="int" />
+          <Property Name="Evento" Type="int" />
+        </EntityType>
+        <EntityType Name="Bitacoras">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="Accion" Type="varchar(max)" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cabeceras">
+          <Key>
+            <PropertyRef Name="IdCabecera" />
+          </Key>
+          <Property Name="IdCabecera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="150" />
+          <Property Name="Icono" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CargosPersonas">
+          <Key>
+            <PropertyRef Name="IdCargoPersona" />
+          </Key>
+          <Property Name="IdCargoPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersona" Type="int" Nullable="false" />
+          <Property Name="IdCargo" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carpetas">
+          <Key>
+            <PropertyRef Name="IdCarpeta" />
+          </Key>
+          <Property Name="IdCarpeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RutaCarpeta" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClasificacionServicios">
+          <Key>
+            <PropertyRef Name="IdClasificacionServicio" />
+          </Key>
+          <Property Name="IdClasificacionServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clasificacion" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Orden" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configuracion">
+          <Key>
+            <PropertyRef Name="IdConfiguracion" />
+          </Key>
+          <Property Name="IdConfiguracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RutaPrincipal" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CordenadasCab24">
+          <Key>
+            <PropertyRef Name="IdCordenadaCab24" />
+          </Key>
+          <Property Name="IdCordenadaCab24" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFolio" Type="int" Nullable="false" />
+          <Property Name="Consecutivo" Type="int" Nullable="false" />
+          <Property Name="X" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Y" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Departamento" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="NombreGerente" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estatus">
+          <Key>
+            <PropertyRef Name="IdEstatus" />
+          </Key>
+          <Property Name="IdEstatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Folios">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+          </Key>
+          <Property Name="IdFolio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Folio" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="varchar(max)" Nullable="false" />
+          <Property Name="Cluster" Type="varchar(max)" Nullable="false" />
+          <Property Name="OLT" Type="varchar(max)" Nullable="false" />
+          <Property Name="ClientesAfectados" Type="varchar(max)" Nullable="false" />
+          <Property Name="FallaReportada" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaYHoraDeAsignacionDespacho" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FechaYHoraDeAsignacionProvista" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HoraDeLlegadaALaZona" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HoraDeLaPrimeraMedicion" Type="varchar(max)" Nullable="false" />
+          <Property Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" Type="varchar(max)" Nullable="false" />
+          <Property Name="CausaDelDano" Type="varchar(max)" Nullable="false" />
+          <Property Name="UbicacionDelDano" Type="varchar(max)" Nullable="false" />
+          <Property Name="CoordenadasDelDanoX" Type="varchar(max)" Nullable="false" />
+          <Property Name="CoordenadasDelDanoY" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescripcionDeActividades" Type="varchar(max)" Nullable="false" />
+          <Property Name="PotencialInicia" Type="varchar(max)" Nullable="false" />
+          <Property Name="PotencialFinal" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaHoraFinalReparacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdPersona_TecnicoAtiende" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="int" Nullable="false" />
+          <Property Name="IdPersona_Supervisor" Type="int" Nullable="false" />
+          <Property Name="IdPersona_AtendioDespacho" Type="int" Nullable="false" />
+          <Property Name="JustificacionDeSLA" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="IdDepartamento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Formatos">
+          <Key>
+            <PropertyRef Name="IdFormato" />
+          </Key>
+          <Property Name="IdFormato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Formato" Type="varchar(max)" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="IdModulo" />
+          </Key>
+          <Property Name="IdModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Modulo" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdCabecera" Type="int" Nullable="false" />
+          <Property Name="Icono" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+          </Key>
+          <Property Name="IdPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Perfil" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermisosPerfiles">
+          <Key>
+            <PropertyRef Name="IdPermisoPerfil" />
+          </Key>
+          <Property Name="IdPermisoPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="IdPerfil" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Paterno" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Materno" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proveedor" Type="varchar(max)" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Name="IdServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialNSC" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdUnidad" Type="int" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="IdClasificacionServicio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiciosPorFormato">
+          <Key>
+            <PropertyRef Name="IdServicioPorFormato" />
+          </Key>
+          <Property Name="IdServicioPorFormato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFormato" Type="int" Nullable="false" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sesiones">
+          <Key>
+            <PropertyRef Name="IdSesion" />
+          </Key>
+          <Property Name="IdSesion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="Ip" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoArchivo">
+          <Key>
+            <PropertyRef Name="IdTipoArchivo" />
+          </Key>
+          <Property Name="IdTipoArchivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoArchivo" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrabajosRealizados">
+          <Key>
+            <PropertyRef Name="IdTrabajoRealizado" />
+          </Key>
+          <Property Name="IdTrabajoRealizado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFolio" Type="int" Nullable="false" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="Consecutivo" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="IdUnidad" Type="int" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Unidades">
+          <Key>
+            <PropertyRef Name="IdUnidad" />
+          </Key>
+          <Property Name="IdUnidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unidad" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdPerfil" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Paterno" Type="varchar" MaxLength="50" />
+          <Property Name="Materno" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="150" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwArchivos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwArchivos">
+          <Key>
+            <PropertyRef Name="IdArchivo" />
+            <PropertyRef Name="IdFolio" />
+            <PropertyRef Name="IdTipoArchivo" />
+            <PropertyRef Name="IdCarpeta" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Extension" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="TipoArchivo" />
+            <PropertyRef Name="RutaCarpeta" />
+          </Key>
+          <Property Name="IdArchivo" Type="int" Nullable="false" />
+          <Property Name="IdFolio" Type="int" Nullable="false" />
+          <Property Name="IdTipoArchivo" Type="int" Nullable="false" />
+          <Property Name="IdCarpeta" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="Extension" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Orden" Type="int" />
+          <Property Name="Evento" Type="int" />
+          <Property Name="TipoArchivo" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="RutaCarpeta" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwCargos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwCargos">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+            <PropertyRef Name="Cargo" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdCargo" Type="int" Nullable="false" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwClasificacionServicios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwClasificacionServicios">
+          <Key>
+            <PropertyRef Name="IdClasificacionServicio" />
+            <PropertyRef Name="Clasificacion" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdClasificacionServicio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Clasificacion" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwDepartamentos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDepartamentos">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="Departamento" />
+            <PropertyRef Name="NombreGerente" />
+            <PropertyRef Name="Correo" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdDepartamento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Departamento" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="NombreGerente" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwFolios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwFolios">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+            <PropertyRef Name="Folio" />
+            <PropertyRef Name="Ciudad" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Cluster" />
+            <PropertyRef Name="OLT" />
+            <PropertyRef Name="ClientesAfectados" />
+            <PropertyRef Name="FallaReportada" />
+            <PropertyRef Name="HoraDeLaPrimeraMedicion" />
+            <PropertyRef Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" />
+            <PropertyRef Name="CausaDelDano" />
+            <PropertyRef Name="UbicacionDelDano" />
+            <PropertyRef Name="CoordenadasDelDanoX" />
+            <PropertyRef Name="CoordenadasDelDanoY" />
+            <PropertyRef Name="DescripcionDeActividades" />
+            <PropertyRef Name="PotencialInicia" />
+            <PropertyRef Name="PotencialFinal" />
+            <PropertyRef Name="IdPersona_TecnicoAtiende" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdPersona_Supervisor" />
+            <PropertyRef Name="IdPersona_AtendioDespacho" />
+            <PropertyRef Name="JustificacionDeSLA" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Tecnico" />
+            <PropertyRef Name="Supervisor" />
+            <PropertyRef Name="Atendio" />
+            <PropertyRef Name="Proveedor" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="Departamento" />
+          </Key>
+          <Property Name="IdFolio" Type="int" Nullable="false" />
+          <Property Name="Folio" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="varchar(max)" Nullable="false" />
+          <Property Name="Cluster" Type="varchar(max)" Nullable="false" />
+          <Property Name="OLT" Type="varchar(max)" Nullable="false" />
+          <Property Name="ClientesAfectados" Type="varchar(max)" Nullable="false" />
+          <Property Name="FallaReportada" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaYHoraDeAsignacionDespacho" Type="varchar" MaxLength="30" />
+          <Property Name="FechaYHoraDeAsignacionProvista" Type="varchar" MaxLength="30" />
+          <Property Name="HoraDeLlegadaALaZona" Type="varchar" MaxLength="30" />
+          <Property Name="HoraDeLaPrimeraMedicion" Type="varchar(max)" Nullable="false" />
+          <Property Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" Type="varchar(max)" Nullable="false" />
+          <Property Name="CausaDelDano" Type="varchar(max)" Nullable="false" />
+          <Property Name="UbicacionDelDano" Type="varchar(max)" Nullable="false" />
+          <Property Name="CoordenadasDelDanoX" Type="varchar(max)" Nullable="false" />
+          <Property Name="CoordenadasDelDanoY" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescripcionDeActividades" Type="varchar(max)" Nullable="false" />
+          <Property Name="PotencialInicia" Type="varchar(max)" Nullable="false" />
+          <Property Name="PotencialFinal" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaHoraFinalReparacion" Type="varchar" MaxLength="30" />
+          <Property Name="IdPersona_TecnicoAtiende" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="int" Nullable="false" />
+          <Property Name="IdPersona_Supervisor" Type="int" Nullable="false" />
+          <Property Name="IdPersona_AtendioDespacho" Type="int" Nullable="false" />
+          <Property Name="JustificacionDeSLA" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Tecnico" Type="varchar" MaxLength="752" Nullable="false" />
+          <Property Name="Supervisor" Type="varchar" MaxLength="752" Nullable="false" />
+          <Property Name="Atendio" Type="varchar" MaxLength="752" Nullable="false" />
+          <Property Name="Proveedor" Type="varchar(max)" Nullable="false" />
+          <Property Name="IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="Departamento" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwFormatos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwFormatos">
+          <Key>
+            <PropertyRef Name="IdFormato" />
+            <PropertyRef Name="Formato" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdFormato" Type="int" Nullable="false" />
+          <Property Name="Formato" Type="varchar(max)" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwPerfiles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwPerfiles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdPerfil" Type="int" Nullable="false" />
+          <Property Name="Perfil" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwPersonas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwPersonas">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Paterno" />
+            <PropertyRef Name="Materno" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdPersona" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Paterno" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Materno" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwProveedores' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwProveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="Proveedor" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdProveedor" Type="int" Nullable="false" />
+          <Property Name="Proveedor" Type="varchar(max)" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwServicios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwServicios">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+            <PropertyRef Name="MaterialNSC" />
+            <PropertyRef Name="Clave" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="IdUnidad" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="IdClasificacionServicio" />
+            <PropertyRef Name="Estatus" />
+            <PropertyRef Name="Unidad" />
+            
+          </Key>
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="MaterialNSC" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdUnidad" Type="int" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="IdClasificacionServicio" Type="int" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Unidad" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Clasificacion" Type="varchar" MaxLength="350" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwTrabajosRealizados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwTrabajosRealizados">
+          <Key>
+            <PropertyRef Name="IdTrabajoRealizado" />
+            <PropertyRef Name="IdFolio" />
+            <PropertyRef Name="IdServicio" />
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="IdUnidad" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="DescripcionFolio" />
+            <PropertyRef Name="Folio" />
+            <PropertyRef Name="Unidad" />
+            <PropertyRef Name="Clave" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="IdTrabajoRealizado" Type="int" Nullable="false" />
+          <Property Name="IdFolio" Type="int" Nullable="false" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="Consecutivo" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="IdUnidad" Type="int" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="DescripcionFolio" Type="varchar(max)" Nullable="false" />
+          <Property Name="Folio" Type="varchar(max)" Nullable="false" />
+          <Property Name="Unidad" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwUnidades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwUnidades">
+          <Key>
+            <PropertyRef Name="IdUnidad" />
+            <PropertyRef Name="Unidad" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdUnidad" Type="int" Nullable="false" />
+          <Property Name="Unidad" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwUsuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="IdPerfil" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdPerfil" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Paterno" Type="varchar" MaxLength="50" />
+          <Property Name="Materno" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="150" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="IdEstatus" Type="int" Nullable="false" />
+          <Property Name="IdSesion" Type="bigint" Nullable="false" />
+          <Property Name="FechaSistema" Type="datetime" Nullable="false" />
+          <Property Name="Perfil" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="ArchivosFotograficosPorFolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ArchivosPorFolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+          <Parameter Name="IdCarpeta" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CatalogoServicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CrearSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Contraseña" Type="varchar" Mode="In" />
+          <Parameter Name="Ip" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DatosFolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DividirCadena" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cadena" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Divisor" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Campo" Type="nvarchar(max)" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="EliminarArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdArchivo" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="EliminarPermisoPerfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPermisoPerfil" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="EliminarServicioPorFormato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="IdFormato" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="EliminarTrabajo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdTrabajo" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+          <Parameter Name="IdTipoArchivo" Type="int" Mode="In" />
+          <Parameter Name="IdCarpeta" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Extension" Type="varchar" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+          <Parameter Name="Orden" Type="int" Mode="In" />
+          <Parameter Name="Evento" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GuardarBitacora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Accion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarCargo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCargo" Type="int" Mode="In" />
+          <Parameter Name="Cargo" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarCargoPersona" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCargos" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IdPersona" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarClasificacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdClasificacionServicio" Type="int" Mode="In" />
+          <Parameter Name="Clasificacion" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+          <Parameter Name="Departamento" Type="varchar" Mode="In" />
+          <Parameter Name="NombreGerente" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarDepartamentoFolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+          <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarFolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+          <Parameter Name="Folio" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Ciudad" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Estado" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Cluster" Type="varchar(max)" Mode="In" />
+          <Parameter Name="OLT" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ClientesAfectados" Type="varchar(max)" Mode="In" />
+          <Parameter Name="FallaReportada" Type="varchar(max)" Mode="In" />
+          <Parameter Name="FechaYHoraDeAsignacionDespacho" Type="varchar" Mode="In" />
+          <Parameter Name="FechaYHoraDeAsignacionProvista" Type="varchar" Mode="In" />
+          <Parameter Name="HoraDeLlegadaALaZona" Type="varchar" Mode="In" />
+          <Parameter Name="HoraDeLaPrimeraMedicion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CausaDelDano" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UbicacionDelDano" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CoordenadasDelDanoX" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CoordenadasDelDanoY" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DescripcionDeActividades" Type="varchar(max)" Mode="In" />
+          <Parameter Name="PotencialInicia" Type="varchar(max)" Mode="In" />
+          <Parameter Name="PotencialFinal" Type="varchar(max)" Mode="In" />
+          <Parameter Name="FechaHoraFinalReparacion" Type="varchar" Mode="In" />
+          <Parameter Name="IdPersona_TecnicoAtiende" Type="int" Mode="In" />
+          <Parameter Name="IdProveedor" Type="int" Mode="In" />
+          <Parameter Name="IdPersona_Supervisor" Type="int" Mode="In" />
+          <Parameter Name="IdPersona_AtendioDespacho" Type="int" Mode="In" />
+          <Parameter Name="JustificacionDeSLA" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ActualizarTrabajosRealizados" Type="bit" Mode="In" />
+          <Parameter Name="TrabajosRealizados" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ActualizarCordenadasCab24" Type="bit" Mode="In" />
+          <Parameter Name="CordenadasCab24" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarFormato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFormato" Type="int" Mode="In" />
+          <Parameter Name="Formato" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarPerfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPerfil" Type="int" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="Perfil" Type="varchar" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarPermisoPerfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdModulo" Type="int" Mode="In" />
+          <Parameter Name="IdPerfil" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarPersona" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPersona" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Paterno" Type="varchar" Mode="In" />
+          <Parameter Name="Materno" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdProveedor" Type="int" Mode="In" />
+          <Parameter Name="Proveedor" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="Clave" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IdUnidad" Type="int" Mode="In" />
+          <Parameter Name="PrecioUnitario" Type="numeric" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+          <Parameter Name="IdClasificacionServicio" Type="int" Mode="In" />
+          <Parameter Name="MaterialNSC" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GuardarServicioPorFormato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFormato" Type="int" Mode="In" />
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarTrabajoRealizado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="int" Mode="In" />
+          <Parameter Name="IdUnidad" Type="int" Mode="In" />
+          <Parameter Name="Pu" Type="numeric" Mode="In" />
+          <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+          <Parameter Name="IdTrabajoRealizado" Type="int" Mode="In" />
+          <Parameter Name="Consecutivo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GuardarUnidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUnidad" Type="int" Mode="In" />
+          <Parameter Name="Unidad" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GuardarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="IdPerfil" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Paterno" Type="varchar" Mode="In" />
+          <Parameter Name="Materno" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="int" Mode="In" />
+          <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="ServiciosPorFolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFolio" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="EnercableBDStoreContainer">
+          <EntitySet Name="Archivos" EntityType="Self.Archivos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bitacoras" EntityType="Self.Bitacoras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cabeceras" EntityType="Self.Cabeceras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cargos" EntityType="Self.Cargos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CargosPersonas" EntityType="Self.CargosPersonas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carpetas" EntityType="Self.Carpetas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClasificacionServicios" EntityType="Self.ClasificacionServicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Configuracion" EntityType="Self.Configuracion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CordenadasCab24" EntityType="Self.CordenadasCab24" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Folios" EntityType="Self.Folios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formatos" EntityType="Self.Formatos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermisosPerfiles" EntityType="Self.PermisosPerfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiciosPorFormato" EntityType="Self.ServiciosPorFormato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sesiones" EntityType="Self.Sesiones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoArchivo" EntityType="Self.TipoArchivo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrabajosRealizados" EntityType="Self.TrabajosRealizados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unidades" EntityType="Self.Unidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwArchivos" EntityType="Self.vwArchivos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwArchivos].[IdArchivo] AS [IdArchivo], 
+    [vwArchivos].[IdFolio] AS [IdFolio], 
+    [vwArchivos].[IdTipoArchivo] AS [IdTipoArchivo], 
+    [vwArchivos].[IdCarpeta] AS [IdCarpeta], 
+    [vwArchivos].[Nombre] AS [Nombre], 
+    [vwArchivos].[Extension] AS [Extension], 
+    [vwArchivos].[FechaSistema] AS [FechaSistema], 
+    [vwArchivos].[IdSesion] AS [IdSesion], 
+    [vwArchivos].[Orden] AS [Orden], 
+    [vwArchivos].[Evento] AS [Evento], 
+    [vwArchivos].[TipoArchivo] AS [TipoArchivo], 
+    [vwArchivos].[RutaCarpeta] AS [RutaCarpeta]
+    FROM [dbo].[vwArchivos] AS [vwArchivos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCargos" EntityType="Self.vwCargos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwCargos].[IdCargo] AS [IdCargo], 
+    [vwCargos].[Cargo] AS [Cargo], 
+    [vwCargos].[IdEstatus] AS [IdEstatus], 
+    [vwCargos].[FechaSistema] AS [FechaSistema], 
+    [vwCargos].[IdSesion] AS [IdSesion], 
+    [vwCargos].[Estatus] AS [Estatus]
+    FROM [dbo].[vwCargos] AS [vwCargos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwClasificacionServicios" EntityType="Self.vwClasificacionServicios" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwClasificacionServicios].[IdClasificacionServicio] AS [IdClasificacionServicio], 
+    [vwClasificacionServicios].[Clasificacion] AS [Clasificacion], 
+    [vwClasificacionServicios].[IdEstatus] AS [IdEstatus], 
+    [vwClasificacionServicios].[Estatus] AS [Estatus]
+    FROM [dbo].[vwClasificacionServicios] AS [vwClasificacionServicios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwDepartamentos" EntityType="Self.vwDepartamentos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwDepartamentos].[IdDepartamento] AS [IdDepartamento], 
+    [vwDepartamentos].[Departamento] AS [Departamento], 
+    [vwDepartamentos].[NombreGerente] AS [NombreGerente], 
+    [vwDepartamentos].[Correo] AS [Correo], 
+    [vwDepartamentos].[Telefono] AS [Telefono], 
+    [vwDepartamentos].[IdEstatus] AS [IdEstatus], 
+    [vwDepartamentos].[Estatus] AS [Estatus]
+    FROM [dbo].[vwDepartamentos] AS [vwDepartamentos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFolios" EntityType="Self.vwFolios" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwFolios].[IdFolio] AS [IdFolio], 
+    [vwFolios].[Folio] AS [Folio], 
+    [vwFolios].[Ciudad] AS [Ciudad], 
+    [vwFolios].[Estado] AS [Estado], 
+    [vwFolios].[Cluster] AS [Cluster], 
+    [vwFolios].[OLT] AS [OLT], 
+    [vwFolios].[ClientesAfectados] AS [ClientesAfectados], 
+    [vwFolios].[FallaReportada] AS [FallaReportada], 
+    [vwFolios].[FechaYHoraDeAsignacionDespacho] AS [FechaYHoraDeAsignacionDespacho], 
+    [vwFolios].[FechaYHoraDeAsignacionProvista] AS [FechaYHoraDeAsignacionProvista], 
+    [vwFolios].[HoraDeLlegadaALaZona] AS [HoraDeLlegadaALaZona], 
+    [vwFolios].[HoraDeLaPrimeraMedicion] AS [HoraDeLaPrimeraMedicion], 
+    [vwFolios].[UbicacionDePrimerSegundoNivelYDerivacionConSusFibras] AS [UbicacionDePrimerSegundoNivelYDerivacionConSusFibras], 
+    [vwFolios].[CausaDelDano] AS [CausaDelDano], 
+    [vwFolios].[UbicacionDelDano] AS [UbicacionDelDano], 
+    [vwFolios].[CoordenadasDelDanoX] AS [CoordenadasDelDanoX], 
+    [vwFolios].[CoordenadasDelDanoY] AS [CoordenadasDelDanoY], 
+    [vwFolios].[DescripcionDeActividades] AS [DescripcionDeActividades], 
+    [vwFolios].[PotencialInicia] AS [PotencialInicia], 
+    [vwFolios].[PotencialFinal] AS [PotencialFinal], 
+    [vwFolios].[FechaHoraFinalReparacion] AS [FechaHoraFinalReparacion], 
+    [vwFolios].[IdPersona_TecnicoAtiende] AS [IdPersona_TecnicoAtiende], 
+    [vwFolios].[IdProveedor] AS [IdProveedor], 
+    [vwFolios].[IdPersona_Supervisor] AS [IdPersona_Supervisor], 
+    [vwFolios].[IdPersona_AtendioDespacho] AS [IdPersona_AtendioDespacho], 
+    [vwFolios].[JustificacionDeSLA] AS [JustificacionDeSLA], 
+    [vwFolios].[FechaSistema] AS [FechaSistema], 
+    [vwFolios].[IdSesion] AS [IdSesion], 
+    [vwFolios].[Tecnico] AS [Tecnico], 
+    [vwFolios].[Supervisor] AS [Supervisor], 
+    [vwFolios].[Atendio] AS [Atendio], 
+    [vwFolios].[Proveedor] AS [Proveedor], 
+    [vwFolios].[IdDepartamento] AS [IdDepartamento], 
+    [vwFolios].[Departamento] AS [Departamento]
+    FROM [dbo].[vwFolios] AS [vwFolios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFormatos" EntityType="Self.vwFormatos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwFormatos].[IdFormato] AS [IdFormato], 
+    [vwFormatos].[Formato] AS [Formato], 
+    [vwFormatos].[IdEstatus] AS [IdEstatus], 
+    [vwFormatos].[FechaSistema] AS [FechaSistema], 
+    [vwFormatos].[IdSesion] AS [IdSesion], 
+    [vwFormatos].[Estatus] AS [Estatus]
+    FROM [dbo].[vwFormatos] AS [vwFormatos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwPerfiles" EntityType="Self.vwPerfiles" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwPerfiles].[IdPerfil] AS [IdPerfil], 
+    [vwPerfiles].[Perfil] AS [Perfil], 
+    [vwPerfiles].[IdEstatus] AS [IdEstatus], 
+    [vwPerfiles].[IdSesion] AS [IdSesion], 
+    [vwPerfiles].[FechaSistema] AS [FechaSistema], 
+    [vwPerfiles].[Estatus] AS [Estatus]
+    FROM [dbo].[vwPerfiles] AS [vwPerfiles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwPersonas" EntityType="Self.vwPersonas" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwPersonas].[IdPersona] AS [IdPersona], 
+    [vwPersonas].[Nombre] AS [Nombre], 
+    [vwPersonas].[Paterno] AS [Paterno], 
+    [vwPersonas].[Materno] AS [Materno], 
+    [vwPersonas].[IdEstatus] AS [IdEstatus], 
+    [vwPersonas].[FechaSistema] AS [FechaSistema], 
+    [vwPersonas].[IdSesion] AS [IdSesion], 
+    [vwPersonas].[Estatus] AS [Estatus]
+    FROM [dbo].[vwPersonas] AS [vwPersonas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwProveedores" EntityType="Self.vwProveedores" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwProveedores].[IdProveedor] AS [IdProveedor], 
+    [vwProveedores].[Proveedor] AS [Proveedor], 
+    [vwProveedores].[IdEstatus] AS [IdEstatus], 
+    [vwProveedores].[FechaSistema] AS [FechaSistema], 
+    [vwProveedores].[IdSesion] AS [IdSesion], 
+    [vwProveedores].[Estatus] AS [Estatus]
+    FROM [dbo].[vwProveedores] AS [vwProveedores]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwServicios" EntityType="Self.vwServicios" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwServicios].[IdServicio] AS [IdServicio], 
+    [vwServicios].[MaterialNSC] AS [MaterialNSC], 
+    [vwServicios].[Clave] AS [Clave], 
+    [vwServicios].[Descripcion] AS [Descripcion], 
+    [vwServicios].[IdUnidad] AS [IdUnidad], 
+    [vwServicios].[PrecioUnitario] AS [PrecioUnitario], 
+    [vwServicios].[IdEstatus] AS [IdEstatus], 
+    [vwServicios].[FechaSistema] AS [FechaSistema], 
+    [vwServicios].[IdSesion] AS [IdSesion], 
+    [vwServicios].[IdClasificacionServicio] AS [IdClasificacionServicio], 
+    [vwServicios].[Estatus] AS [Estatus], 
+    [vwServicios].[Unidad] AS [Unidad], 
+    [vwServicios].[Clasificacion] AS [Clasificacion]
+    FROM [dbo].[vwServicios] AS [vwServicios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwTrabajosRealizados" EntityType="Self.vwTrabajosRealizados" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwTrabajosRealizados].[IdTrabajoRealizado] AS [IdTrabajoRealizado], 
+    [vwTrabajosRealizados].[IdFolio] AS [IdFolio], 
+    [vwTrabajosRealizados].[IdServicio] AS [IdServicio], 
+    [vwTrabajosRealizados].[Consecutivo] AS [Consecutivo], 
+    [vwTrabajosRealizados].[Cantidad] AS [Cantidad], 
+    [vwTrabajosRealizados].[IdUnidad] AS [IdUnidad], 
+    [vwTrabajosRealizados].[PrecioUnitario] AS [PrecioUnitario], 
+    [vwTrabajosRealizados].[Total] AS [Total], 
+    [vwTrabajosRealizados].[FechaSistema] AS [FechaSistema], 
+    [vwTrabajosRealizados].[IdSesion] AS [IdSesion], 
+    [vwTrabajosRealizados].[DescripcionFolio] AS [DescripcionFolio], 
+    [vwTrabajosRealizados].[Folio] AS [Folio], 
+    [vwTrabajosRealizados].[Unidad] AS [Unidad], 
+    [vwTrabajosRealizados].[Descripcion] AS [Descripcion], 
+    [vwTrabajosRealizados].[Clave] AS [Clave]
+    FROM [dbo].[vwTrabajosRealizados] AS [vwTrabajosRealizados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwUnidades" EntityType="Self.vwUnidades" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwUnidades].[IdUnidad] AS [IdUnidad], 
+    [vwUnidades].[Unidad] AS [Unidad], 
+    [vwUnidades].[IdEstatus] AS [IdEstatus], 
+    [vwUnidades].[FechaSistema] AS [FechaSistema], 
+    [vwUnidades].[IdSesion] AS [IdSesion], 
+    [vwUnidades].[Estatus] AS [Estatus]
+    FROM [dbo].[vwUnidades] AS [vwUnidades]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwUsuarios" EntityType="Self.vwUsuarios" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwUsuarios].[IdUsuario] AS [IdUsuario], 
+    [vwUsuarios].[Usuario] AS [Usuario], 
+    [vwUsuarios].[Password] AS [Password], 
+    [vwUsuarios].[IdPerfil] AS [IdPerfil], 
+    [vwUsuarios].[Nombre] AS [Nombre], 
+    [vwUsuarios].[Paterno] AS [Paterno], 
+    [vwUsuarios].[Materno] AS [Materno], 
+    [vwUsuarios].[Correo] AS [Correo], 
+    [vwUsuarios].[Telefono] AS [Telefono], 
+    [vwUsuarios].[IdEstatus] AS [IdEstatus], 
+    [vwUsuarios].[IdSesion] AS [IdSesion], 
+    [vwUsuarios].[FechaSistema] AS [FechaSistema], 
+    [vwUsuarios].[Perfil] AS [Perfil], 
+    [vwUsuarios].[Estatus] AS [Estatus]
+    FROM [dbo].[vwUsuarios] AS [vwUsuarios]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnercableBD" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bitacoras">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Accion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Estatus">
+          <Key>
+            <PropertyRef Name="IdEstatus" />
+          </Key>
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="IdModulo" />
+          </Key>
+          <Property Name="IdModulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdCabecera" Type="Int32" Nullable="false" />
+          <Property Name="Icono" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+          </Key>
+          <Property Name="IdPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermisosPerfiles">
+          <Key>
+            <PropertyRef Name="IdPermisoPerfil" />
+          </Key>
+          <Property Name="IdPermisoPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="IdPerfil" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sesiones">
+          <Key>
+            <PropertyRef Name="IdSesion" />
+          </Key>
+          <Property Name="IdSesion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ip" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdPerfil" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="EnercableConexion" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bitacoras" EntityType="Self.Bitacoras" />
+          <EntitySet Name="Estatus" EntityType="Self.Estatus" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" />
+          <EntitySet Name="PermisosPerfiles" EntityType="Self.PermisosPerfiles" />
+          <EntitySet Name="Sesiones" EntityType="Self.Sesiones" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <FunctionImport Name="GuardarBitacora">
+            <Parameter Name="Accion" Mode="In" Type="String" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="CrearSesion" ReturnType="Collection(EnercableBD.CrearSesion_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Contraseña" Mode="In" Type="String" />
+            <Parameter Name="Ip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="EliminarPermisoPerfil">
+            <Parameter Name="IdPermisoPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarPerfil">
+            <Parameter Name="IdPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="Perfil" Mode="In" Type="String" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarPermisoPerfil">
+            <Parameter Name="IdModulo" Mode="In" Type="Int32" />
+            <Parameter Name="IdPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarUsuario">
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="IdPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Paterno" Mode="In" Type="String" />
+            <Parameter Name="Materno" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="Cabeceras" EntityType="EnercableBD.Cabeceras" />
+          <EntitySet Name="Cargos" EntityType="EnercableBD.Cargos" />
+          <EntitySet Name="CargosPersonas" EntityType="EnercableBD.CargosPersonas" />
+          <EntitySet Name="CordenadasCab24" EntityType="EnercableBD.CordenadasCab24" />
+          <EntitySet Name="Personas" EntityType="EnercableBD.Personas" />
+          <EntitySet Name="Proveedores" EntityType="EnercableBD.Proveedores" />
+          <EntitySet Name="Servicios" EntityType="EnercableBD.Servicios" />
+          <EntitySet Name="TrabajosRealizados" EntityType="EnercableBD.TrabajosRealizados" />
+          <EntitySet Name="Unidades" EntityType="EnercableBD.Unidades" />
+          <FunctionImport Name="DividirCadena" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="Cadena" Mode="In" Type="String" />
+            <Parameter Name="Divisor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarFolio">
+            <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+            <Parameter Name="Folio" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Estado" Mode="In" Type="String" />
+            <Parameter Name="Cluster" Mode="In" Type="String" />
+            <Parameter Name="OLT" Mode="In" Type="String" />
+            <Parameter Name="ClientesAfectados" Mode="In" Type="String" />
+            <Parameter Name="FallaReportada" Mode="In" Type="String" />
+            <Parameter Name="FechaYHoraDeAsignacionDespacho" Mode="In" Type="String" />
+            <Parameter Name="FechaYHoraDeAsignacionProvista" Mode="In" Type="String" />
+            <Parameter Name="HoraDeLlegadaALaZona" Mode="In" Type="String" />
+            <Parameter Name="HoraDeLaPrimeraMedicion" Mode="In" Type="String" />
+            <Parameter Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" Mode="In" Type="String" />
+            <Parameter Name="CausaDelDano" Mode="In" Type="String" />
+            <Parameter Name="UbicacionDelDano" Mode="In" Type="String" />
+            <Parameter Name="CoordenadasDelDanoX" Mode="In" Type="String" />
+            <Parameter Name="CoordenadasDelDanoY" Mode="In" Type="String" />
+            <Parameter Name="DescripcionDeActividades" Mode="In" Type="String" />
+            <Parameter Name="PotencialInicia" Mode="In" Type="String" />
+            <Parameter Name="PotencialFinal" Mode="In" Type="String" />
+            <Parameter Name="FechaHoraFinalReparacion" Mode="In" Type="String" />
+            <Parameter Name="IdPersona_TecnicoAtiende" Mode="In" Type="Int32" />
+            <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+            <Parameter Name="IdPersona_Supervisor" Mode="In" Type="Int32" />
+            <Parameter Name="IdPersona_AtendioDespacho" Mode="In" Type="Int32" />
+            <Parameter Name="JustificacionDeSLA" Mode="In" Type="String" />
+            <Parameter Name="ActualizarTrabajosRealizados" Mode="In" Type="Boolean" />
+            <Parameter Name="TrabajosRealizados" Mode="In" Type="String" />
+            <Parameter Name="ActualizarCordenadasCab24" Mode="In" Type="Boolean" />
+            <Parameter Name="CordenadasCab24" Mode="In" Type="String" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="vwUsuarios" EntityType="EnercableBD.vwUsuarios" />
+          <EntitySet Name="vwServicios" EntityType="EnercableBD.vwServicios" />
+          <EntitySet Name="vwPersonas" EntityType="EnercableBD.vwPersonas" />
+          <EntitySet Name="vwProveedores" EntityType="EnercableBD.vwProveedores" />
+          <EntitySet Name="vwUnidades" EntityType="EnercableBD.vwUnidades" />
+          <EntitySet Name="vwCargos" EntityType="EnercableBD.vwCargos" />
+          <FunctionImport Name="GuardarCargo">
+            <Parameter Name="IdCargo" Mode="In" Type="Int32" />
+            <Parameter Name="Cargo" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarCargoPersona">
+            <Parameter Name="IdCargos" Mode="In" Type="String" />
+            <Parameter Name="IdPersona" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarPersona">
+            <Parameter Name="IdPersona" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Paterno" Mode="In" Type="String" />
+            <Parameter Name="Materno" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarProveedor">
+            <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+            <Parameter Name="Proveedor" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarServicio">
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
+            <Parameter Name="PrecioUnitario" Mode="In" Type="Decimal" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+            <Parameter Name="IdClasificacionServicio" Mode="In" Type="Int32" />
+            <Parameter Name="MaterialNSC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarUnidad">
+            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
+            <Parameter Name="Unidad" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="vwPerfiles" EntityType="EnercableBD.vwPerfiles" />
+          <EntitySet Name="Folios" EntityType="EnercableBD.Folios" />
+          <EntitySet Name="Archivos" EntityType="EnercableBD.Archivos" />
+          <EntitySet Name="Carpetas" EntityType="EnercableBD.Carpetas" />
+          <EntitySet Name="ClasificacionServicios" EntityType="EnercableBD.ClasificacionServicios" />
+          <EntitySet Name="Configuracion" EntityType="EnercableBD.Configuracion" />
+          <EntitySet Name="Departamentos" EntityType="EnercableBD.Departamentos" />
+          <EntitySet Name="TipoArchivo" EntityType="EnercableBD.TipoArchivo" />
+          <EntitySet Name="vwClasificacionServicios" EntityType="EnercableBD.vwClasificacionServicios" />
+          <EntitySet Name="vwDepartamentos" EntityType="EnercableBD.vwDepartamentos" />
+          <FunctionImport Name="DatosFolio" ReturnType="Collection(EnercableBD.DatosFolio_Result)">
+          <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EliminarArchivo">
+            <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarArchivo">
+            <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+            <Parameter Name="IdTipoArchivo" Mode="In" Type="Int32" />
+            <Parameter Name="IdCarpeta" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Extension" Mode="In" Type="String" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+            <Parameter Name="Orden" Mode="In" Type="Int32" />
+            <Parameter Name="Evento" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarClasificacionServicio">
+            <Parameter Name="IdClasificacionServicio" Mode="In" Type="Int32" />
+            <Parameter Name="Clasificacion" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarDepartamento">
+            <Parameter Name="IdDepartamento" Mode="In" Type="Int32" />
+            <Parameter Name="Departamento" Mode="In" Type="String" />
+            <Parameter Name="NombreGerente" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarDepartamentoFolio">
+            <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+            <Parameter Name="IdDepartamento" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="vwTrabajosRealizados" EntityType="EnercableBD.vwTrabajosRealizados" />
+          <EntitySet Name="vwFolios" EntityType="EnercableBD.vwFolios" />
+          <EntitySet Name="vwArchivos" EntityType="EnercableBD.vwArchivos" />
+          <FunctionImport Name="GuardarTrabajoRealizado">
+            <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
+            <Parameter Name="Pu" Mode="In" Type="Decimal" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+            <Parameter Name="IdTrabajoRealizado" Mode="In" Type="Int32" />
+            <Parameter Name="Consecutivo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EliminarTrabajo">
+            <Parameter Name="IdTrabajo" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="Formatos" EntityType="EnercableBD.Formatos" />
+          <EntitySet Name="ServiciosPorFormato" EntityType="EnercableBD.ServiciosPorFormato" />
+          <FunctionImport Name="ArchivosFotograficosPorFolio">
+          <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ArchivosPorFolio" ReturnType="Collection(EnercableBD.ArchivosPorFolio_Result)">
+            <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+            <Parameter Name="IdCarpeta" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CatalogoServicios" ReturnType="Collection(EnercableBD.CatalogoServicios_Result)" />
+          <FunctionImport Name="EliminarServicioPorFormato">
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="IdFormato" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarFormato">
+            <Parameter Name="IdFormato" Mode="In" Type="Int32" />
+            <Parameter Name="Formato" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarServicioPorFormato">
+            <Parameter Name="IdFormato" Mode="In" Type="Int32" />
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="ServiciosPorFolio" ReturnType="Collection(EnercableBD.ServiciosPorFolio_Result)">
+          <Parameter Name="IdFolio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="vwFormatos" EntityType="EnercableBD.vwFormatos" />
+        </EntityContainer>
+        <ComplexType Name="CrearSesion_Result">
+          <Property Type="String" Name="Resultado" Nullable="true" MaxLength="500" />
+          <Property Type="Int64" Name="IdSesion" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Cabeceras">
+          <Key>
+            <PropertyRef Name="IdCabecera" />
+          </Key>
+          <Property Name="IdCabecera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Icono" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cargo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CargosPersonas">
+          <Key>
+            <PropertyRef Name="IdCargoPersona" />
+          </Key>
+          <Property Name="IdCargoPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersona" Type="Int32" Nullable="false" />
+          <Property Name="IdCargo" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CordenadasCab24">
+          <Key>
+            <PropertyRef Name="IdCordenadaCab24" />
+          </Key>
+          <Property Name="IdCordenadaCab24" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFolio" Type="Int32" Nullable="false" />
+          <Property Name="Consecutivo" Type="Int32" Nullable="false" />
+          <Property Name="X" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Y" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Paterno" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Materno" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Name="IdServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clave" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdUnidad" Type="Int32" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="MaterialNSC" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IdClasificacionServicio" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrabajosRealizados">
+          <Key>
+            <PropertyRef Name="IdTrabajoRealizado" />
+          </Key>
+          <Property Name="IdTrabajoRealizado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFolio" Type="Int32" Nullable="false" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="Consecutivo" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="IdUnidad" Type="Int32" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Unidades">
+          <Key>
+            <PropertyRef Name="IdUnidad" />
+          </Key>
+          <Property Name="IdUnidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unidad" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwUsuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="IdPerfil" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdPerfil" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Perfil" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwServicios">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+            <PropertyRef Name="Clave" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="IdUnidad" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+            <PropertyRef Name="Unidad" />
+            <PropertyRef Name="IdClasificacionServicio" />
+            <PropertyRef Name="MaterialNSC" />
+          </Key>
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="Clave" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdUnidad" Type="Int32" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unidad" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdClasificacionServicio" Type="Int32" Nullable="false" />
+          <Property Name="Clasificacion" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaterialNSC" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwPersonas">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Paterno" />
+            <PropertyRef Name="Materno" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdPersona" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Paterno" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Materno" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwProveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="Proveedor" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+          <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwUnidades">
+          <Key>
+            <PropertyRef Name="IdUnidad" />
+            <PropertyRef Name="Unidad" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdUnidad" Type="Int32" Nullable="false" />
+          <Property Name="Unidad" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwCargos">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+            <PropertyRef Name="Cargo" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdCargo" Type="Int32" Nullable="false" />
+          <Property Name="Cargo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwPerfiles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdPerfil" Type="Int32" Nullable="false" />
+          <Property Name="Perfil" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Folios">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+          </Key>
+          <Property Name="IdFolio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Folio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cluster" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OLT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientesAfectados" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FallaReportada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaYHoraDeAsignacionDespacho" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaYHoraDeAsignacionProvista" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoraDeLlegadaALaZona" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoraDeLaPrimeraMedicion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CausaDelDano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UbicacionDelDano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CoordenadasDelDanoX" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CoordenadasDelDanoY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DescripcionDeActividades" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PotencialInicia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PotencialFinal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaHoraFinalReparacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdPersona_TecnicoAtiende" Type="Int32" Nullable="false" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+          <Property Name="IdPersona_Supervisor" Type="Int32" Nullable="false" />
+          <Property Name="IdPersona_AtendioDespacho" Type="Int32" Nullable="false" />
+          <Property Name="JustificacionDeSLA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Archivos">
+          <Key>
+            <PropertyRef Name="IdArchivo" />
+          </Key>
+          <Property Name="IdArchivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFolio" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoArchivo" Type="Int32" Nullable="false" />
+          <Property Name="IdCarpeta" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Orden" Type="Int32" />
+          <Property Name="Evento" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Carpetas">
+          <Key>
+            <PropertyRef Name="IdCarpeta" />
+          </Key>
+          <Property Name="IdCarpeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RutaCarpeta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClasificacionServicios">
+          <Key>
+            <PropertyRef Name="IdClasificacionServicio" />
+          </Key>
+          <Property Name="IdClasificacionServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clasificacion" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Orden" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configuracion">
+          <Key>
+            <PropertyRef Name="IdConfiguracion" />
+          </Key>
+          <Property Name="IdConfiguracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RutaPrincipal" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Departamento" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NombreGerente" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoArchivo">
+          <Key>
+            <PropertyRef Name="IdTipoArchivo" />
+          </Key>
+          <Property Name="IdTipoArchivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoArchivo1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwClasificacionServicios">
+          <Key>
+            <PropertyRef Name="IdClasificacionServicio" />
+            <PropertyRef Name="Clasificacion" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdClasificacionServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clasificacion" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwDepartamentos">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="Departamento" />
+            <PropertyRef Name="NombreGerente" />
+            <PropertyRef Name="Correo" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Departamento" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NombreGerente" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="DatosFolio_Result">
+          <Property Type="Int32" Name="IdFolio" Nullable="false" />
+          <Property Type="String" Name="Folio" Nullable="false" />
+          <Property Type="String" Name="Ciudad" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="Cluster" Nullable="false" />
+          <Property Type="String" Name="OLT" Nullable="false" />
+          <Property Type="String" Name="ClientesAfectados" Nullable="false" />
+          <Property Type="String" Name="FallaReportada" Nullable="false" />
+          <Property Type="String" Name="FechaYHoraDeAsignacionDespacho" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="FechaYHoraDeAsignacionProvista" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="HoraDeLlegadaALaZona" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="HoraDeLaPrimeraMedicion" Nullable="false" />
+          <Property Type="String" Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" Nullable="false" />
+          <Property Type="String" Name="CausaDelDano" Nullable="false" />
+          <Property Type="String" Name="UbicacionDelDano" Nullable="false" />
+          <Property Type="String" Name="CoordenadasDelDanoX" Nullable="false" />
+          <Property Type="String" Name="CoordenadasDelDanoY" Nullable="false" />
+          <Property Type="String" Name="DescripcionDeActividades" Nullable="false" />
+          <Property Type="String" Name="PotencialInicia" Nullable="false" />
+          <Property Type="String" Name="PotencialFinal" Nullable="false" />
+          <Property Type="String" Name="FechaHoraFinalReparacion" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="IdPersona_TecnicoAtiende" Nullable="false" />
+          <Property Type="String" Name="PersonaTecnicoAtiende" Nullable="true" MaxLength="752" />
+          <Property Type="Int32" Name="IdProveedor" Nullable="false" />
+          <Property Type="String" Name="Proveedor" Nullable="true" />
+          <Property Type="Int32" Name="IdPersona_Supervisor" Nullable="false" />
+          <Property Type="String" Name="PersonaSupervisor" Nullable="true" MaxLength="752" />
+          <Property Type="Int32" Name="IdPersona_AtendioDespacho" Nullable="false" />
+          <Property Type="String" Name="PersonaAtendioDespacho" Nullable="true" MaxLength="752" />
+          <Property Type="String" Name="JustificacionDeSLA" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="vwTrabajosRealizados">
+          <Key>
+            <PropertyRef Name="IdTrabajoRealizado" />
+            <PropertyRef Name="IdFolio" />
+            <PropertyRef Name="IdServicio" />
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="IdUnidad" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Folio" />
+            <PropertyRef Name="Unidad" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Clave" />
+            <PropertyRef Name="DescripcionFolio" />
+          </Key>
+          <Property Name="IdTrabajoRealizado" Type="Int32" Nullable="false" />
+          <Property Name="IdFolio" Type="Int32" Nullable="false" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="Consecutivo" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="IdUnidad" Type="Int32" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Folio" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Unidad" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Clave" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DescripcionFolio" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFolios">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+            <PropertyRef Name="Folio" />
+            <PropertyRef Name="Ciudad" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Cluster" />
+            <PropertyRef Name="OLT" />
+            <PropertyRef Name="ClientesAfectados" />
+            <PropertyRef Name="FallaReportada" />
+            <PropertyRef Name="HoraDeLaPrimeraMedicion" />
+            <PropertyRef Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" />
+            <PropertyRef Name="CausaDelDano" />
+            <PropertyRef Name="UbicacionDelDano" />
+            <PropertyRef Name="CoordenadasDelDanoX" />
+            <PropertyRef Name="CoordenadasDelDanoY" />
+            <PropertyRef Name="DescripcionDeActividades" />
+            <PropertyRef Name="PotencialInicia" />
+            <PropertyRef Name="PotencialFinal" />
+            <PropertyRef Name="IdPersona_TecnicoAtiende" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdPersona_Supervisor" />
+            <PropertyRef Name="IdPersona_AtendioDespacho" />
+            <PropertyRef Name="JustificacionDeSLA" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Tecnico" />
+            <PropertyRef Name="Supervisor" />
+            <PropertyRef Name="Atendio" />
+            <PropertyRef Name="Proveedor" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="Departamento" />
+          </Key>
+          <Property Name="IdFolio" Type="Int32" Nullable="false" />
+          <Property Name="Folio" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cluster" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OLT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClientesAfectados" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FallaReportada" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaYHoraDeAsignacionDespacho" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FechaYHoraDeAsignacionProvista" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HoraDeLlegadaALaZona" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HoraDeLaPrimeraMedicion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CausaDelDano" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UbicacionDelDano" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CoordenadasDelDanoX" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CoordenadasDelDanoY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionDeActividades" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PotencialInicia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PotencialFinal" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaHoraFinalReparacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IdPersona_TecnicoAtiende" Type="Int32" Nullable="false" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+          <Property Name="IdPersona_Supervisor" Type="Int32" Nullable="false" />
+          <Property Name="IdPersona_AtendioDespacho" Type="Int32" Nullable="false" />
+          <Property Name="JustificacionDeSLA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Tecnico" Type="String" Nullable="false" MaxLength="752" FixedLength="false" Unicode="false" />
+          <Property Name="Supervisor" Type="String" Nullable="false" MaxLength="752" FixedLength="false" Unicode="false" />
+          <Property Name="Atendio" Type="String" Nullable="false" MaxLength="752" FixedLength="false" Unicode="false" />
+          <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="Departamento" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwArchivos">
+          <Key>
+            <PropertyRef Name="IdArchivo" />
+            <PropertyRef Name="IdFolio" />
+            <PropertyRef Name="IdTipoArchivo" />
+            <PropertyRef Name="IdCarpeta" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Extension" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="TipoArchivo" />
+            <PropertyRef Name="RutaCarpeta" />
+          </Key>
+          <Property Name="IdArchivo" Type="Int32" Nullable="false" />
+          <Property Name="IdFolio" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoArchivo" Type="Int32" Nullable="false" />
+          <Property Name="IdCarpeta" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="TipoArchivo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="RutaCarpeta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Orden" Type="Int32" />
+          <Property Name="Evento" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Formatos">
+          <Key>
+            <PropertyRef Name="IdFormato" />
+          </Key>
+          <Property Name="IdFormato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Formato" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiciosPorFormato">
+          <Key>
+            <PropertyRef Name="IdServicioPorFormato" />
+          </Key>
+          <Property Name="IdServicioPorFormato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFormato" Type="Int32" Nullable="false" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="ArchivosPorFolio_Result">
+          <Property Type="Int32" Name="IdFolio" Nullable="false" />
+          <Property Type="String" Name="Ruta" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="CatalogoServicios_Result">
+          <Property Type="String" Name="Clave" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Descripcion" Nullable="false" />
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+          <Property Type="Int32" Name="EsGrupo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ServiciosPorFolio_Result">
+          <Property Type="String" Name="MaterialNSC" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Clave" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Descripcion" Nullable="false" />
+          <Property Type="String" Name="Unidad" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="Cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="PrecioUnitario" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Total" Nullable="false" Precision="12" Scale="2" />
+        </ComplexType>
+        <EntityType Name="vwFormatos">
+          <Key>
+            <PropertyRef Name="IdFormato" />
+            <PropertyRef Name="Formato" />
+            <PropertyRef Name="IdEstatus" />
+            <PropertyRef Name="FechaSistema" />
+            <PropertyRef Name="IdSesion" />
+            <PropertyRef Name="Estatus" />
+          </Key>
+          <Property Name="IdFormato" Type="Int32" Nullable="false" />
+          <Property Name="Formato" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int32" Nullable="false" />
+          <Property Name="FechaSistema" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdSesion" Type="Int64" Nullable="false" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EnercableBDStoreContainer" CdmEntityContainer="EnercableConexion">
+          <EntitySetMapping Name="Bitacoras">
+            <EntityTypeMapping TypeName="EnercableBD.Bitacoras">
+              <MappingFragment StoreEntitySet="Bitacoras">
+                <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estatus">
+            <EntityTypeMapping TypeName="EnercableBD.Estatus">
+              <MappingFragment StoreEntitySet="Estatus">
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Estatus1" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulos">
+            <EntityTypeMapping TypeName="EnercableBD.Modulos">
+              <MappingFragment StoreEntitySet="Modulos">
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+                <ScalarProperty Name="IdCabecera" ColumnName="IdCabecera" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfiles">
+            <EntityTypeMapping TypeName="EnercableBD.Perfiles">
+              <MappingFragment StoreEntitySet="Perfiles">
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermisosPerfiles">
+            <EntityTypeMapping TypeName="EnercableBD.PermisosPerfiles">
+              <MappingFragment StoreEntitySet="PermisosPerfiles">
+                <ScalarProperty Name="IdPermisoPerfil" ColumnName="IdPermisoPerfil" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sesiones">
+            <EntityTypeMapping TypeName="EnercableBD.Sesiones">
+              <MappingFragment StoreEntitySet="Sesiones">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="EnercableBD.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+                <ScalarProperty Name="Materno" ColumnName="Materno" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GuardarBitacora" FunctionName="EnercableBD.Store.GuardarBitacora" />
+          <FunctionImportMapping FunctionImportName="CrearSesion" FunctionName="EnercableBD.Store.CrearSesion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnercableBD.CrearSesion_Result">
+                <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EliminarPermisoPerfil" FunctionName="EnercableBD.Store.EliminarPermisoPerfil" />
+          <FunctionImportMapping FunctionImportName="GuardarPerfil" FunctionName="EnercableBD.Store.GuardarPerfil" />
+          <FunctionImportMapping FunctionImportName="GuardarPermisoPerfil" FunctionName="EnercableBD.Store.GuardarPermisoPerfil" />
+          <FunctionImportMapping FunctionImportName="GuardarUsuario" FunctionName="EnercableBD.Store.GuardarUsuario" />
+          <EntitySetMapping Name="Cabeceras">
+            <EntityTypeMapping TypeName="EnercableBD.Cabeceras">
+              <MappingFragment StoreEntitySet="Cabeceras">
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdCabecera" ColumnName="IdCabecera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargos">
+            <EntityTypeMapping TypeName="EnercableBD.Cargos">
+              <MappingFragment StoreEntitySet="Cargos">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CargosPersonas">
+            <EntityTypeMapping TypeName="EnercableBD.CargosPersonas">
+              <MappingFragment StoreEntitySet="CargosPersonas">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdCargoPersona" ColumnName="IdCargoPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CordenadasCab24">
+            <EntityTypeMapping TypeName="EnercableBD.CordenadasCab24">
+              <MappingFragment StoreEntitySet="CordenadasCab24">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="IdCordenadaCab24" ColumnName="IdCordenadaCab24" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personas">
+            <EntityTypeMapping TypeName="EnercableBD.Personas">
+              <MappingFragment StoreEntitySet="Personas">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Materno" ColumnName="Materno" />
+                <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="EnercableBD.Proveedores">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios">
+            <EntityTypeMapping TypeName="EnercableBD.Servicios">
+              <MappingFragment StoreEntitySet="Servicios">
+                <ScalarProperty Name="IdClasificacionServicio" ColumnName="IdClasificacionServicio" />
+                <ScalarProperty Name="MaterialNSC" ColumnName="MaterialNSC" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrabajosRealizados">
+            <EntityTypeMapping TypeName="EnercableBD.TrabajosRealizados">
+              <MappingFragment StoreEntitySet="TrabajosRealizados">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="IdTrabajoRealizado" ColumnName="IdTrabajoRealizado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unidades">
+            <EntityTypeMapping TypeName="EnercableBD.Unidades">
+              <MappingFragment StoreEntitySet="Unidades">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DividirCadena" FunctionName="EnercableBD.Store.DividirCadena" />
+          <FunctionImportMapping FunctionImportName="GuardarFolio" FunctionName="EnercableBD.Store.GuardarFolio" />
+          <EntitySetMapping Name="vwUsuarios">
+            <EntityTypeMapping TypeName="EnercableBD.vwUsuarios">
+              <MappingFragment StoreEntitySet="vwUsuarios">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Materno" ColumnName="Materno" />
+                <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwServicios">
+            <EntityTypeMapping TypeName="EnercableBD.vwServicios">
+              <MappingFragment StoreEntitySet="vwServicios">
+                <ScalarProperty Name="MaterialNSC" ColumnName="MaterialNSC" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="IdClasificacionServicio" ColumnName="IdClasificacionServicio" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwPersonas">
+            <EntityTypeMapping TypeName="EnercableBD.vwPersonas">
+              <MappingFragment StoreEntitySet="vwPersonas">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Materno" ColumnName="Materno" />
+                <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwProveedores">
+            <EntityTypeMapping TypeName="EnercableBD.vwProveedores">
+              <MappingFragment StoreEntitySet="vwProveedores">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwUnidades">
+            <EntityTypeMapping TypeName="EnercableBD.vwUnidades">
+              <MappingFragment StoreEntitySet="vwUnidades">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCargos">
+            <EntityTypeMapping TypeName="EnercableBD.vwCargos">
+              <MappingFragment StoreEntitySet="vwCargos">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GuardarCargo" FunctionName="EnercableBD.Store.GuardarCargo" />
+          <FunctionImportMapping FunctionImportName="GuardarCargoPersona" FunctionName="EnercableBD.Store.GuardarCargoPersona" />
+          <FunctionImportMapping FunctionImportName="GuardarPersona" FunctionName="EnercableBD.Store.GuardarPersona" />
+          <FunctionImportMapping FunctionImportName="GuardarProveedor" FunctionName="EnercableBD.Store.GuardarProveedor" />
+          <FunctionImportMapping FunctionImportName="GuardarServicio" FunctionName="EnercableBD.Store.GuardarServicio" />
+          <FunctionImportMapping FunctionImportName="GuardarUnidad" FunctionName="EnercableBD.Store.GuardarUnidad" />
+          <EntitySetMapping Name="vwPerfiles">
+            <EntityTypeMapping TypeName="EnercableBD.vwPerfiles">
+              <MappingFragment StoreEntitySet="vwPerfiles">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Folios">
+            <EntityTypeMapping TypeName="EnercableBD.Folios">
+              <MappingFragment StoreEntitySet="Folios">
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="JustificacionDeSLA" ColumnName="JustificacionDeSLA" />
+                <ScalarProperty Name="IdPersona_AtendioDespacho" ColumnName="IdPersona_AtendioDespacho" />
+                <ScalarProperty Name="IdPersona_Supervisor" ColumnName="IdPersona_Supervisor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdPersona_TecnicoAtiende" ColumnName="IdPersona_TecnicoAtiende" />
+                <ScalarProperty Name="FechaHoraFinalReparacion" ColumnName="FechaHoraFinalReparacion" />
+                <ScalarProperty Name="PotencialFinal" ColumnName="PotencialFinal" />
+                <ScalarProperty Name="PotencialInicia" ColumnName="PotencialInicia" />
+                <ScalarProperty Name="DescripcionDeActividades" ColumnName="DescripcionDeActividades" />
+                <ScalarProperty Name="CoordenadasDelDanoY" ColumnName="CoordenadasDelDanoY" />
+                <ScalarProperty Name="CoordenadasDelDanoX" ColumnName="CoordenadasDelDanoX" />
+                <ScalarProperty Name="UbicacionDelDano" ColumnName="UbicacionDelDano" />
+                <ScalarProperty Name="CausaDelDano" ColumnName="CausaDelDano" />
+                <ScalarProperty Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" ColumnName="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" />
+                <ScalarProperty Name="HoraDeLaPrimeraMedicion" ColumnName="HoraDeLaPrimeraMedicion" />
+                <ScalarProperty Name="HoraDeLlegadaALaZona" ColumnName="HoraDeLlegadaALaZona" />
+                <ScalarProperty Name="FechaYHoraDeAsignacionProvista" ColumnName="FechaYHoraDeAsignacionProvista" />
+                <ScalarProperty Name="FechaYHoraDeAsignacionDespacho" ColumnName="FechaYHoraDeAsignacionDespacho" />
+                <ScalarProperty Name="FallaReportada" ColumnName="FallaReportada" />
+                <ScalarProperty Name="ClientesAfectados" ColumnName="ClientesAfectados" />
+                <ScalarProperty Name="OLT" ColumnName="OLT" />
+                <ScalarProperty Name="Cluster" ColumnName="Cluster" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Archivos">
+            <EntityTypeMapping TypeName="EnercableBD.Archivos">
+              <MappingFragment StoreEntitySet="Archivos">
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdCarpeta" ColumnName="IdCarpeta" />
+                <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carpetas">
+            <EntityTypeMapping TypeName="EnercableBD.Carpetas">
+              <MappingFragment StoreEntitySet="Carpetas">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="RutaCarpeta" ColumnName="RutaCarpeta" />
+                <ScalarProperty Name="IdCarpeta" ColumnName="IdCarpeta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClasificacionServicios">
+            <EntityTypeMapping TypeName="EnercableBD.ClasificacionServicios">
+              <MappingFragment StoreEntitySet="ClasificacionServicios">
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="IdClasificacionServicio" ColumnName="IdClasificacionServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configuracion">
+            <EntityTypeMapping TypeName="EnercableBD.Configuracion">
+              <MappingFragment StoreEntitySet="Configuracion">
+                <ScalarProperty Name="RutaPrincipal" ColumnName="RutaPrincipal" />
+                <ScalarProperty Name="IdConfiguracion" ColumnName="IdConfiguracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamentos">
+            <EntityTypeMapping TypeName="EnercableBD.Departamentos">
+              <MappingFragment StoreEntitySet="Departamentos">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="NombreGerente" ColumnName="NombreGerente" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoArchivo">
+            <EntityTypeMapping TypeName="EnercableBD.TipoArchivo">
+              <MappingFragment StoreEntitySet="TipoArchivo">
+                <ScalarProperty Name="TipoArchivo1" ColumnName="TipoArchivo" />
+                <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwClasificacionServicios">
+            <EntityTypeMapping TypeName="EnercableBD.vwClasificacionServicios">
+              <MappingFragment StoreEntitySet="vwClasificacionServicios">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="IdClasificacionServicio" ColumnName="IdClasificacionServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDepartamentos">
+            <EntityTypeMapping TypeName="EnercableBD.vwDepartamentos">
+              <MappingFragment StoreEntitySet="vwDepartamentos">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="NombreGerente" ColumnName="NombreGerente" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DatosFolio" FunctionName="EnercableBD.Store.DatosFolio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnercableBD.DatosFolio_Result">
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cluster" ColumnName="Cluster" />
+                <ScalarProperty Name="OLT" ColumnName="OLT" />
+                <ScalarProperty Name="ClientesAfectados" ColumnName="ClientesAfectados" />
+                <ScalarProperty Name="FallaReportada" ColumnName="FallaReportada" />
+                <ScalarProperty Name="FechaYHoraDeAsignacionDespacho" ColumnName="FechaYHoraDeAsignacionDespacho" />
+                <ScalarProperty Name="FechaYHoraDeAsignacionProvista" ColumnName="FechaYHoraDeAsignacionProvista" />
+                <ScalarProperty Name="HoraDeLlegadaALaZona" ColumnName="HoraDeLlegadaALaZona" />
+                <ScalarProperty Name="HoraDeLaPrimeraMedicion" ColumnName="HoraDeLaPrimeraMedicion" />
+                <ScalarProperty Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" ColumnName="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" />
+                <ScalarProperty Name="CausaDelDano" ColumnName="CausaDelDano" />
+                <ScalarProperty Name="UbicacionDelDano" ColumnName="UbicacionDelDano" />
+                <ScalarProperty Name="CoordenadasDelDanoX" ColumnName="CoordenadasDelDanoX" />
+                <ScalarProperty Name="CoordenadasDelDanoY" ColumnName="CoordenadasDelDanoY" />
+                <ScalarProperty Name="DescripcionDeActividades" ColumnName="DescripcionDeActividades" />
+                <ScalarProperty Name="PotencialInicia" ColumnName="PotencialInicia" />
+                <ScalarProperty Name="PotencialFinal" ColumnName="PotencialFinal" />
+                <ScalarProperty Name="FechaHoraFinalReparacion" ColumnName="FechaHoraFinalReparacion" />
+                <ScalarProperty Name="IdPersona_TecnicoAtiende" ColumnName="IdPersona_TecnicoAtiende" />
+                <ScalarProperty Name="PersonaTecnicoAtiende" ColumnName="PersonaTecnicoAtiende" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="IdPersona_Supervisor" ColumnName="IdPersona_Supervisor" />
+                <ScalarProperty Name="PersonaSupervisor" ColumnName="PersonaSupervisor" />
+                <ScalarProperty Name="IdPersona_AtendioDespacho" ColumnName="IdPersona_AtendioDespacho" />
+                <ScalarProperty Name="PersonaAtendioDespacho" ColumnName="PersonaAtendioDespacho" />
+                <ScalarProperty Name="JustificacionDeSLA" ColumnName="JustificacionDeSLA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EliminarArchivo" FunctionName="EnercableBD.Store.EliminarArchivo" />
+          <FunctionImportMapping FunctionImportName="GuardarArchivo" FunctionName="EnercableBD.Store.GuardarArchivo" />
+          <FunctionImportMapping FunctionImportName="GuardarClasificacionServicio" FunctionName="EnercableBD.Store.GuardarClasificacionServicio" />
+          <FunctionImportMapping FunctionImportName="GuardarDepartamento" FunctionName="EnercableBD.Store.GuardarDepartamento" />
+          <FunctionImportMapping FunctionImportName="GuardarDepartamentoFolio" FunctionName="EnercableBD.Store.GuardarDepartamentoFolio" />
+          <EntitySetMapping Name="vwTrabajosRealizados">
+            <EntityTypeMapping TypeName="EnercableBD.vwTrabajosRealizados">
+              <MappingFragment StoreEntitySet="vwTrabajosRealizados">
+                <ScalarProperty Name="DescripcionFolio" ColumnName="DescripcionFolio" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="IdTrabajoRealizado" ColumnName="IdTrabajoRealizado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFolios">
+            <EntityTypeMapping TypeName="EnercableBD.vwFolios">
+              <MappingFragment StoreEntitySet="vwFolios">
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="Atendio" ColumnName="Atendio" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Tecnico" ColumnName="Tecnico" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="JustificacionDeSLA" ColumnName="JustificacionDeSLA" />
+                <ScalarProperty Name="IdPersona_AtendioDespacho" ColumnName="IdPersona_AtendioDespacho" />
+                <ScalarProperty Name="IdPersona_Supervisor" ColumnName="IdPersona_Supervisor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdPersona_TecnicoAtiende" ColumnName="IdPersona_TecnicoAtiende" />
+                <ScalarProperty Name="FechaHoraFinalReparacion" ColumnName="FechaHoraFinalReparacion" />
+                <ScalarProperty Name="PotencialFinal" ColumnName="PotencialFinal" />
+                <ScalarProperty Name="PotencialInicia" ColumnName="PotencialInicia" />
+                <ScalarProperty Name="DescripcionDeActividades" ColumnName="DescripcionDeActividades" />
+                <ScalarProperty Name="CoordenadasDelDanoY" ColumnName="CoordenadasDelDanoY" />
+                <ScalarProperty Name="CoordenadasDelDanoX" ColumnName="CoordenadasDelDanoX" />
+                <ScalarProperty Name="UbicacionDelDano" ColumnName="UbicacionDelDano" />
+                <ScalarProperty Name="CausaDelDano" ColumnName="CausaDelDano" />
+                <ScalarProperty Name="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" ColumnName="UbicacionDePrimerSegundoNivelYDerivacionConSusFibras" />
+                <ScalarProperty Name="HoraDeLaPrimeraMedicion" ColumnName="HoraDeLaPrimeraMedicion" />
+                <ScalarProperty Name="HoraDeLlegadaALaZona" ColumnName="HoraDeLlegadaALaZona" />
+                <ScalarProperty Name="FechaYHoraDeAsignacionProvista" ColumnName="FechaYHoraDeAsignacionProvista" />
+                <ScalarProperty Name="FechaYHoraDeAsignacionDespacho" ColumnName="FechaYHoraDeAsignacionDespacho" />
+                <ScalarProperty Name="FallaReportada" ColumnName="FallaReportada" />
+                <ScalarProperty Name="ClientesAfectados" ColumnName="ClientesAfectados" />
+                <ScalarProperty Name="OLT" ColumnName="OLT" />
+                <ScalarProperty Name="Cluster" ColumnName="Cluster" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwArchivos">
+            <EntityTypeMapping TypeName="EnercableBD.vwArchivos">
+              <MappingFragment StoreEntitySet="vwArchivos">
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="RutaCarpeta" ColumnName="RutaCarpeta" />
+                <ScalarProperty Name="TipoArchivo" ColumnName="TipoArchivo" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdCarpeta" ColumnName="IdCarpeta" />
+                <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GuardarTrabajoRealizado" FunctionName="EnercableBD.Store.GuardarTrabajoRealizado" />
+          <FunctionImportMapping FunctionImportName="EliminarTrabajo" FunctionName="EnercableBD.Store.EliminarTrabajo" />
+          <EntitySetMapping Name="Formatos">
+            <EntityTypeMapping TypeName="EnercableBD.Formatos">
+              <MappingFragment StoreEntitySet="Formatos">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+                <ScalarProperty Name="IdFormato" ColumnName="IdFormato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiciosPorFormato">
+            <EntityTypeMapping TypeName="EnercableBD.ServiciosPorFormato">
+              <MappingFragment StoreEntitySet="ServiciosPorFormato">
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="IdFormato" ColumnName="IdFormato" />
+                <ScalarProperty Name="IdServicioPorFormato" ColumnName="IdServicioPorFormato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ArchivosFotograficosPorFolio" FunctionName="EnercableBD.Store.ArchivosFotograficosPorFolio" />
+          <FunctionImportMapping FunctionImportName="ArchivosPorFolio" FunctionName="EnercableBD.Store.ArchivosPorFolio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnercableBD.ArchivosPorFolio_Result">
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CatalogoServicios" FunctionName="EnercableBD.Store.CatalogoServicios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnercableBD.CatalogoServicios_Result">
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="EsGrupo" ColumnName="EsGrupo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EliminarServicioPorFormato" FunctionName="EnercableBD.Store.EliminarServicioPorFormato" />
+          <FunctionImportMapping FunctionImportName="GuardarFormato" FunctionName="EnercableBD.Store.GuardarFormato" />
+          <FunctionImportMapping FunctionImportName="GuardarServicioPorFormato" FunctionName="EnercableBD.Store.GuardarServicioPorFormato" />
+          <FunctionImportMapping FunctionImportName="ServiciosPorFolio" FunctionName="EnercableBD.Store.ServiciosPorFolio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnercableBD.ServiciosPorFolio_Result">
+                <ScalarProperty Name="MaterialNSC" ColumnName="MaterialNSC" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwFormatos">
+            <EntityTypeMapping TypeName="EnercableBD.vwFormatos">
+              <MappingFragment StoreEntitySet="vwFormatos">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+                <ScalarProperty Name="IdFormato" ColumnName="IdFormato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
