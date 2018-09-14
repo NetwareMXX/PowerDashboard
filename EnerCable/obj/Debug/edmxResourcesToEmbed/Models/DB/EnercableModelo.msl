@@ -318,6 +318,7 @@
     <EntitySetMapping Name="Folios">
       <EntityTypeMapping TypeName="EnercableBD.Folios">
         <MappingFragment StoreEntitySet="Folios">
+          <ScalarProperty Name="IdFormato" ColumnName="IdFormato" />
           <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
           <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
           <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
@@ -506,6 +507,8 @@
     <EntitySetMapping Name="vwFolios">
       <EntityTypeMapping TypeName="EnercableBD.vwFolios">
         <MappingFragment StoreEntitySet="vwFolios">
+          <ScalarProperty Name="Formato" ColumnName="Formato" />
+          <ScalarProperty Name="IdFormato" ColumnName="IdFormato" />
           <ScalarProperty Name="Departamento" ColumnName="Departamento" />
           <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
           <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />

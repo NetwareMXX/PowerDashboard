@@ -150,6 +150,7 @@
           <Property Name="FechaSistema" Type="datetime" Nullable="false" />
           <Property Name="IdSesion" Type="bigint" Nullable="false" />
           <Property Name="IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="IdFormato" Type="int" />
         </EntityType>
         <EntityType Name="Formatos">
           <Key>
@@ -411,6 +412,8 @@ warning 6002: The table/view 'Enercable.dbo.vwFolios' does not have a primary ke
             <PropertyRef Name="Proveedor" />
             <PropertyRef Name="IdDepartamento" />
             <PropertyRef Name="Departamento" />
+            <PropertyRef Name="IdFormato" />
+            <PropertyRef Name="Formato" />
           </Key>
           <Property Name="IdFolio" Type="int" Nullable="false" />
           <Property Name="Folio" Type="varchar(max)" Nullable="false" />
@@ -446,6 +449,8 @@ warning 6002: The table/view 'Enercable.dbo.vwFolios' does not have a primary ke
           <Property Name="Proveedor" Type="varchar(max)" Nullable="false" />
           <Property Name="IdDepartamento" Type="int" Nullable="false" />
           <Property Name="Departamento" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IdFormato" Type="int" Nullable="false" />
+          <Property Name="Formato" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Enercable.dbo.vwFormatos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -760,6 +765,7 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
           <Parameter Name="ActualizarCordenadasCab24" Type="bit" Mode="In" />
           <Parameter Name="CordenadasCab24" Type="varchar(max)" Mode="In" />
           <Parameter Name="IdSesion" Type="bigint" Mode="In" />
+          <Parameter Name="IdFormato" Type="int" Mode="In" />
         </Function>
         <Function Name="GuardarFormato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdFormato" Type="int" Mode="In" />
@@ -947,7 +953,9 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
     [vwFolios].[Atendio] AS [Atendio], 
     [vwFolios].[Proveedor] AS [Proveedor], 
     [vwFolios].[IdDepartamento] AS [IdDepartamento], 
-    [vwFolios].[Departamento] AS [Departamento]
+    [vwFolios].[Departamento] AS [Departamento], 
+    [vwFolios].[IdFormato] AS [IdFormato], 
+    [vwFolios].[Formato] AS [Formato]
     FROM [dbo].[vwFolios] AS [vwFolios]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwFormatos" EntityType="Self.vwFormatos" store:Type="Views" store:Schema="dbo">
@@ -1224,6 +1232,7 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
             <Parameter Name="ActualizarCordenadasCab24" Mode="In" Type="Boolean" />
             <Parameter Name="CordenadasCab24" Mode="In" Type="String" />
             <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+            <Parameter Name="IdFormato" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="vwUsuarios" EntityType="EnercableBD.vwUsuarios" />
           <EntitySet Name="vwServicios" EntityType="EnercableBD.vwServicios" />
@@ -1650,6 +1659,7 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
           <Property Name="FechaSistema" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="IdSesion" Type="Int64" Nullable="false" />
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="IdFormato" Type="Int32" />
         </EntityType>
         <EntityType Name="Archivos">
           <Key>
@@ -1841,6 +1851,8 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
             <PropertyRef Name="Proveedor" />
             <PropertyRef Name="IdDepartamento" />
             <PropertyRef Name="Departamento" />
+            <PropertyRef Name="IdFormato" />
+            <PropertyRef Name="Formato" />
           </Key>
           <Property Name="IdFolio" Type="Int32" Nullable="false" />
           <Property Name="Folio" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -1876,6 +1888,8 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
           <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
           <Property Name="Departamento" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdFormato" Type="Int32" Nullable="false" />
+          <Property Name="Formato" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vwArchivos">
           <Key>
@@ -2281,6 +2295,7 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
           <EntitySetMapping Name="Folios">
             <EntityTypeMapping TypeName="EnercableBD.Folios">
               <MappingFragment StoreEntitySet="Folios">
+                <ScalarProperty Name="IdFormato" ColumnName="IdFormato" />
                 <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
                 <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
                 <ScalarProperty Name="FechaSistema" ColumnName="FechaSistema" />
@@ -2469,6 +2484,8 @@ warning 6002: The table/view 'Enercable.dbo.vwUsuarios' does not have a primary 
           <EntitySetMapping Name="vwFolios">
             <EntityTypeMapping TypeName="EnercableBD.vwFolios">
               <MappingFragment StoreEntitySet="vwFolios">
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+                <ScalarProperty Name="IdFormato" ColumnName="IdFormato" />
                 <ScalarProperty Name="Departamento" ColumnName="Departamento" />
                 <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />

@@ -81,6 +81,7 @@ function Load() {
     $('#ddlEventoArchivo').selectpicker();
     $('#ddlOrdenArchivo').selectpicker();
 
+    $('#ddlFormato').selectpicker();
 
     $("#aPanel").click(function () {
         if ($("#aPanel").hasClass("collapsed")) {

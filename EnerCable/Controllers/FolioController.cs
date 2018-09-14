@@ -29,6 +29,7 @@ namespace EnerCable.Controllers
 
             ServicioManager _serMan = new ServicioManager();
             UnidadManager _uMan = new UnidadManager();
+            FormatoManager _fMan = new FormatoManager();
 
 
             string _nombre = string.Empty, _correo = string.Empty;
@@ -55,6 +56,8 @@ namespace EnerCable.Controllers
             List<vwPersonas> _lsSupervisores = _perMan.obtenerPersonasPorCargo(PersonaManager.enumCargos.Supervisor);
             List<vwPersonas> _lsDespachadores = _perMan.obtenerPersonasPorCargo(PersonaManager.enumCargos.Atiende);
             List<vwProveedores> _lsProveedores = _provMan.obtenerProveedoresValidos();
+            List<vwFormatos> _lsFormatos = _fMan.obtenerFormatosValidos();
+            
 
 
 
@@ -62,6 +65,7 @@ namespace EnerCable.Controllers
             List<SelectListItem> _supervisores = new List<SelectListItem>();
             List<SelectListItem> _despachadores = new List<SelectListItem>();
             List<SelectListItem> _proveedores = new List<SelectListItem>();
+            List<SelectListItem> _formatos = new List<SelectListItem>();
 
             List<SelectListItem> myDepto = new List<SelectListItem>();
             List<vwDepartamentos> _departamentos = _depMan.obtenerDepartamentos();
@@ -154,6 +158,14 @@ namespace EnerCable.Controllers
                 ++_conta;
 
             }
+            _conta = 0;
+            foreach (vwFormatos servicio in _lsFormatos)
+            {
+                if (_conta == 0) _formatos.Add(new SelectListItem() { Text = servicio.Formato, Value = servicio.IdFormato.ToString(), Selected = true });
+                else _formatos.Add(new SelectListItem() { Text = servicio.Formato, Value = servicio.IdFormato.ToString() });
+                ++_conta;
+
+            }
 
 
 
@@ -169,6 +181,7 @@ namespace EnerCable.Controllers
             ViewBag.Carpetas = myCarpetas;
             ViewBag.Claves = myClaves;
             ViewBag.Unidades = myUnidades;
+            ViewBag.Formatos = _formatos;
             return View();
         }
 

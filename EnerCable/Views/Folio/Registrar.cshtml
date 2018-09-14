@@ -356,7 +356,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row clearfix">
 
+                                            <div class="col-sm-4">
+                                                <label for="ddlFormato">Formato</label>
+                                                @Html.DropDownList("ddlFormato", (IEnumerable
+
+                                                            <SelectListItem>)ViewBag.Formatos, new { @class = "combo form-control show-tick" })
+                                            </div>
+                                            
+
+                                        </div>
 
                                         <div class="row clearfix">
                                             <div class="col-md-2">

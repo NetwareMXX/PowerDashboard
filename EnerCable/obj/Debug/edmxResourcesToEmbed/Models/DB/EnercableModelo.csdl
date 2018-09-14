@@ -163,6 +163,7 @@
       <Parameter Name="ActualizarCordenadasCab24" Mode="In" Type="Boolean" />
       <Parameter Name="CordenadasCab24" Mode="In" Type="String" />
       <Parameter Name="IdSesion" Mode="In" Type="Int64" />
+      <Parameter Name="IdFormato" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="vwUsuarios" EntityType="EnercableBD.vwUsuarios" />
     <EntitySet Name="vwServicios" EntityType="EnercableBD.vwServicios" />
@@ -589,6 +590,7 @@
     <Property Name="FechaSistema" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="IdSesion" Type="Int64" Nullable="false" />
     <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+    <Property Name="IdFormato" Type="Int32" />
   </EntityType>
   <EntityType Name="Archivos">
     <Key>
@@ -780,6 +782,8 @@
       <PropertyRef Name="Proveedor" />
       <PropertyRef Name="IdDepartamento" />
       <PropertyRef Name="Departamento" />
+      <PropertyRef Name="IdFormato" />
+      <PropertyRef Name="Formato" />
     </Key>
     <Property Name="IdFolio" Type="Int32" Nullable="false" />
     <Property Name="Folio" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -815,6 +819,8 @@
     <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
     <Property Name="Departamento" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IdFormato" Type="Int32" Nullable="false" />
+    <Property Name="Formato" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="vwArchivos">
     <Key>

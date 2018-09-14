@@ -152,7 +152,8 @@ namespace EnerCable.Models.ViewModel
         public long IdSesion { get; set; }
 
         public string TrabajosRealizados { set; get; }
-
+        public int IdFormato { set; get; }
+        public string Formato { set; get; }
     }
     public class TrabajoRealizadoView {
         public int IdOrden { set; get; }

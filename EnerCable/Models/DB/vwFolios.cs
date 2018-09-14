@@ -48,5 +48,7 @@ namespace EnerCable.Models.DB
         public string Proveedor { get; set; }
         public int IdDepartamento { get; set; }
         public string Departamento { get; set; }
+        public int IdFormato { get; set; }
+        public string Formato { get; set; }
     }
 }

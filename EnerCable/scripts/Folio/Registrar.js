@@ -126,7 +126,9 @@ datosGrid = {
     IdPersona_AtendioDespacho: { type: "string" },
     JustificacionDeSLA: { type: "string" },
     Departamento: { type: "string" },
-    IdDepartamento: { type: "string" }
+    IdDepartamento: { type: "string" },
+    Formato: { type: "string" },
+    IdFormato: { type: "string" }
 
 
 
@@ -163,7 +165,7 @@ datosInsercion = [
         { control: "ddlSupervisor", requerido: 0, nombre: "Supervisor ", defaultVal: "1", tipoControl: "Combo", columnaGrid: "IdPersona_Supervisor" },
         { control: "ddlDespacho", requerido: 0, nombre: "Despacho ", defaultVal: "1", tipoControl: "Combo", columnaGrid: "IdPersona_AtendioDespacho" },
         { control: "ddlProveedor", requerido: 0, nombre: "Proveedor ", defaultVal: "1", tipoControl: "Combo", columnaGrid: "IdProveedor" },
-
+        { control: "ddlFormato", requerido: 0, nombre: "Formato ", defaultVal: "1", tipoControl: "Combo", columnaGrid: "IdFormato" },
         { control: "txtServicios", requerido: 0, nombre: "Servicios ", defaultVal: "", tipoControl: "Texto", columnaGrid: "CausaDelDano" },
         { control: "txtCoordenadasCab", requerido: 0, nombre: "Coordenadas ", defaultVal: "", tipoControl: "Texto", columnaGrid: "CausaDelDano" }
 
@@ -189,6 +191,11 @@ columnasGrid = [
                  {
                      field: "Departamento",
                      title: "Depto"
+
+                 },
+                 {
+                     field: "Formato",
+                     title: "Formato"
 
                  },
 
@@ -217,6 +224,11 @@ columnasGrid = [
                  {
                      field: "IdDepartamento",
                      title: "IdDepartamento", hidden: true
+                 }
+                 ,
+                 {
+                     field: "IdFormato",
+                     title: "IdFormato", hidden: true
                  }
 
 ];
@@ -250,6 +262,8 @@ function recuperarDatos() {
     _folio.IdPersona_Supervisor = $("#ddlSupervisorx").val();
     _folio.IdPersona_AtendioDespacho = $("#ddlDespachox").val();
     _folio.IdProveedor = $("#ddlProveedor").val();
+    _folio.IdFormato = $("#ddlFormato").val();
+    
 
     _folio.TrabajosRealizados = $("#txtServicios").val();
     _folio.CoordenadasCab = $("#txtCoordenadasCab").val();
@@ -304,6 +318,7 @@ function pintarCajasDeTexto() {
                         if (response.data.Result.IdPersona_Supervisor > 0) $("#ddlSupervisorx").selectpicker("val", response.data.Result.IdPersona_Supervisor);
                         if (response.data.Result.IdPersona_AtendioDespacho > 0) $("#ddlDespachox").selectpicker("val", response.data.Result.IdPersona_AtendioDespacho);
                         if (response.data.Result.IdProveedor > 0) $("#ddlProveedor").selectpicker("val", response.data.Result.IdProveedor);
+                        //if (response.data.Result.IdFormato > 0) $("#ddlFormato").selectpicker("val", response.data.Result.IdFormato);
 
                         $("#txtServicios").val(response.data.Result.TrabajosRealizados);
                         $("#txtCoordenadasCab").val(response.data.Result.CoordenadasCab);
@@ -558,6 +573,7 @@ function llenarDatos(dataItem) {
 
     $("#ddlDespachox").selectpicker("val", dataItem.IdPersona_AtendioDespacho);
     $("#ddlProveedor").selectpicker("val", dataItem.IdProveedor);
+    $("#ddlFormato").selectpicker("val", dataItem.IdFormato);
 
     //dataItem.TrabajosRealizados = $("#txtServicios").val();
     //dataItem.CoordenadasCab = $("#txtCoordenadasCab").val();

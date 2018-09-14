@@ -151,5 +151,20 @@ namespace EnerCable.Models.EntityManager
             }
         }
         #endregion
+        #region obtenerFormatos
+        public List<vwFormatos> obtenerFormatosValidos()
+        {
+            System.Text.StringBuilder _html = new System.Text.StringBuilder();
+
+            using (EnercableConexion db = new EnercableConexion())
+            {
+                var menu = from usu in db.vwFormatos
+                           where usu.IdEstatus.Equals(1)
+                           select usu;
+                return menu.OrderBy(x => x.Formato).ToList();
+
+            }
+        }
+        #endregion
     }
 }

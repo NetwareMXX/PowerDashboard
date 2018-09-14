@@ -43,5 +43,6 @@ namespace EnerCable.Models.DB
         public System.DateTime FechaSistema { get; set; }
         public long IdSesion { get; set; }
         public int IdDepartamento { get; set; }
+        public Nullable<int> IdFormato { get; set; }
     }
 }

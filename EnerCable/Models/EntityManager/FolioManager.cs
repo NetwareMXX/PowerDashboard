@@ -44,7 +44,7 @@ namespace EnerCable.Models.EntityManager
                         folio.HoraDeLlegadaALaZona, folio.HoraDeLaPrimeraMedicion, folio.UbicacionDePrimerSegundoNivelYDerivacionConSusFibras,
                         folio.CausaDelDano, folio.UbicacionDelDano, folio.CoordenadasDelDanoX, folio.CoordenadasDelDanoY, folio.DescripcionDeActividades,
                         folio.PotencialInicia, folio.PotencialFinal, folio.FechaHoraFinalReparacion, folio.IdPersona_TecnicoAtiende, folio.IdProveedor,
-                        folio.IdPersona_Supervisor, folio.IdPersona_AtendioDespacho, folio.JustificacionDeSLA, false, folio.TrabajosRealizados, false, folio.CoordenadasCab, idSesion
+                        folio.IdPersona_Supervisor, folio.IdPersona_AtendioDespacho, folio.JustificacionDeSLA, false, folio.TrabajosRealizados, false, folio.CoordenadasCab, idSesion,folio.IdFormato
                         );
 
                 }
